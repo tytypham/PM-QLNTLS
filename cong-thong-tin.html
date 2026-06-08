@@ -1,0 +1,1287 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cổng thông tin nghĩa trang liệt sĩ — TP. Đồng Nai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C00000;--red-2:#9e0000;--red-3:#7a0000;--red-bg:#fbeeee;--red-soft:#f7e9e9;
+ --gold:#b8860b;--gold-2:#f4c95d;--ink:#1f1f1f;--muted:#6b6b6b;--line:#e3dada;--bg:#f6f3f3;
+ --serif:'Noto Serif',Georgia,'Times New Roman',serif;--sans:'Be Vietnam Pro','Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:15px;line-height:1.6}
+a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.hidden{display:none!important}
+.serif{font-family:var(--serif)}
+
+/* ===== Top utility bar ===== */
+.topbar{background:linear-gradient(180deg,var(--red-3),var(--red-2));color:#fff;font-size:12.5px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:38px}
+.topbar .left{display:flex;align-items:center;gap:18px;opacity:.92;letter-spacing:.02em}
+.topbar .left span{display:inline-flex;align-items:center;gap:6px}
+.topbar .right{display:flex;align-items:center;gap:14px}
+.topbar a{color:#fff;opacity:.9}
+.lang{display:flex;gap:2px;align-items:center}
+.lang button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;font:inherit;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:4px;cursor:pointer;font-family:var(--sans)}
+.lang button.on{background:var(--gold-2);color:#5e0000;border-color:var(--gold-2)}
+
+/* ===== Header / brand ===== */
+header.site{background:#fff;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:40;box-shadow:0 2px 14px rgba(80,0,0,.06)}
+.brandrow{display:flex;align-items:center;gap:16px;padding:14px 0}
+.emblem{width:60px;height:60px;flex:0 0 60px;border-radius:50%;background:
+   radial-gradient(circle at 50% 38%, #d11a1a, #7a0000 72%);
+   display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(122,0,0,.3),inset 0 0 0 2px rgba(244,201,93,.5)}
+.emblem svg{width:36px;height:36px}
+.brandtext{flex:1;min-width:0}
+.brandtext .org{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.brandtext h1{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--red-3);line-height:1.3;margin-top:2px}
+.brandtext .sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+.searchbtn{flex:0 0 auto;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--red);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.searchbtn:hover{background:var(--red-bg)}
+/* nav */
+nav.main{background:var(--red);}
+nav.main .wrap{display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none}
+nav.main .wrap::-webkit-scrollbar{display:none}
+nav.main a{color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.01em;padding:13px 17px;display:flex;align-items:center;gap:7px;white-space:nowrap;border-right:1px solid rgba(255,255,255,.12);transition:background .15s}
+nav.main a:first-child{border-left:1px solid rgba(255,255,255,.12)}
+nav.main a:hover{background:var(--red-2);text-decoration:none}
+nav.main a.active{background:#fff;color:var(--red)}
+.navtoggle{display:none}
+
+/* ===== Hero ===== */
+.hero{position:relative;color:#fff;text-align:center;padding:66px 22px 116px;overflow:hidden;
+ background:
+   radial-gradient(120% 90% at 50% -10%, rgba(244,201,93,.14), rgba(244,201,93,0) 54%),
+   linear-gradient(180deg, rgba(45,0,0,.5), rgba(18,0,0,.86)),
+   radial-gradient(circle at 50% 12%, #a30606, #5e0000 60%, #320000 100%)}
+.hero::before{content:"";position:absolute;top:-16%;left:50%;width:920px;height:920px;transform:translateX(-50%);pointer-events:none;
+ background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,212,120,.07) 0 5deg, rgba(255,212,120,0) 5deg 17deg);
+ -webkit-mask:radial-gradient(circle at 50% 50%, #000 0, transparent 62%);mask:radial-gradient(circle at 50% 50%, #000 0, transparent 62%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 220px rgba(0,0,0,.55)}
+.hero>*{position:relative;z-index:1}
+.hero .ribbon{font-family:var(--serif);color:var(--gold-2);font-size:13px;font-weight:700;letter-spacing:.36em;text-indent:.36em;margin-bottom:14px}
+.hero .rule{width:120px;height:0;border:0;border-top:1px solid rgba(244,201,93,.5);position:relative;margin:0 auto 26px}
+.hero .rule::after{content:"";position:absolute;left:50%;top:-3.5px;width:7px;height:7px;transform:translateX(-50%) rotate(45deg);background:var(--gold-2)}
+.hero h2{font-family:var(--serif);font-size:33px;font-weight:600;line-height:1.45;max-width:760px;margin:0 auto;letter-spacing:.005em;text-wrap:balance}
+.hero p.lead{margin:18px auto 0;font-size:15.5px;line-height:1.8;color:rgba(255,255,255,.85);max-width:600px}
+/* quick search */
+.qsearch{margin:36px auto 0;max-width:760px;background:rgba(255,253,251,.97);border-radius:12px;padding:10px;display:flex;gap:8px;box-shadow:0 22px 54px rgba(40,0,0,.4);border-top:3px solid var(--gold-2)}
+.qsearch input{flex:1;border:none;background:transparent;font:inherit;font-size:16px;padding:12px 16px;color:var(--ink);min-width:0}
+.qsearch input:focus{outline:none}
+.qsearch .btn{flex:0 0 auto}
+.hero .quicklinks{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:13px}
+.hero .quicklinks a{color:rgba(255,255,255,.9);border:1px solid rgba(244,201,93,.4);padding:6px 14px;border-radius:20px}
+.hero .quicklinks a:hover{background:rgba(244,201,93,.16);text-decoration:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:8px;padding:13px 22px;font-size:15px;font-weight:700;cursor:pointer;background:var(--red);color:#fff;font-family:var(--sans);transition:background .15s,transform .1s}
+.btn:hover{background:var(--red-2);text-decoration:none}
+.btn:active{transform:scale(.99)}
+.btn.gold{background:linear-gradient(180deg,#d9a93c,var(--gold));color:#3a2400;box-shadow:0 6px 16px rgba(184,134,11,.3)}
+.btn.gold:hover{background:linear-gradient(180deg,var(--gold),#8a6400)}
+.btn.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+.btn.ghost:hover{background:var(--red-bg)}
+.btn.sm{padding:8px 14px;font-size:13px;border-radius:7px}
+.btn.lg{padding:16px 30px;font-size:16px}
+.btn.block{width:100%}
+
+/* ===== Section scaffolding ===== */
+section.band{padding:56px 0}
+.sec-head{text-align:center;margin-bottom:38px}
+.sec-head .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.sec-head h3{font-family:var(--serif);font-size:27px;color:var(--red-3);margin-top:8px;font-weight:600}
+.sec-head .deco{width:54px;height:2px;background:var(--gold);margin:14px auto 0;position:relative}
+.sec-head .deco::after{content:"";position:absolute;left:50%;top:-2.5px;width:6px;height:6px;transform:translateX(-50%) rotate(45deg);background:var(--gold)}
+.sec-head p{max-width:560px;margin:14px auto 0;color:var(--muted);font-size:14.5px}
+
+/* CTA entry cards */
+.entry-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:-72px;position:relative;z-index:5}
+.entry{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 28px;box-shadow:0 16px 40px rgba(60,0,0,.1);border-top:4px solid var(--red);display:flex;flex-direction:column;gap:12px}
+.entry .ic{width:56px;height:56px;border-radius:14px;background:var(--red-bg);color:var(--red);display:flex;align-items:center;justify-content:center}
+.entry h4{font-family:var(--serif);font-size:20px;color:var(--red-3);font-weight:600}
+.entry p{color:var(--muted);font-size:14px;flex:1}
+
+/* Stats */
+.stats{background:linear-gradient(180deg,#fff,var(--red-soft));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:40px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--red);line-height:1}
+.stat .num .suffix{font-size:20px;color:var(--gold);margin-left:2px}
+.stat .lab{margin-top:10px;font-size:13.5px;color:var(--muted);letter-spacing:.02em}
+.stat .ic{color:var(--gold);margin-bottom:6px}
+
+/* News */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ncard{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s}
+.ncard:hover{box-shadow:0 14px 34px rgba(60,0,0,.12);transform:translateY(-3px)}
+.ncard .ph{height:172px;background:linear-gradient(135deg,#8a0f0f,#5e0000);position:relative;display:flex;align-items:center;justify-content:center;color:rgba(244,201,93,.5)}
+.ncard .ph svg{width:46px;height:46px}
+.ncard .ph::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,212,120,.05) 0 6deg, transparent 6deg 18deg)}
+.ncard .tag{position:absolute;top:12px;left:12px;background:var(--gold-2);color:#5e0000;font-size:11px;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:.02em;z-index:1}
+.ncard .body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.ncard .date{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.03em}
+.ncard h4{font-family:var(--serif);font-size:17px;color:var(--ink);margin-top:7px;line-height:1.4;font-weight:600}
+.ncard p{font-size:13.5px;color:var(--muted);margin-top:8px;flex:1}
+.ncard .more{margin-top:12px;font-size:13px;font-weight:600;color:var(--red)}
+
+/* Guide steps */
+.guide{background:#fff}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:gs}
+.gstep{text-align:center;padding:0 8px;position:relative}
+.gstep .n{counter-increment:gs;width:60px;height:60px;border-radius:50%;background:var(--red-bg);border:2px solid var(--red);color:var(--red);font-family:var(--serif);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.gstep .n::before{content:counter(gs)}
+.gstep h5{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.gstep p{font-size:13px;color:var(--muted)}
+
+/* ===== Search view ===== */
+.searchhead{background:linear-gradient(180deg,var(--red-2),var(--red-3));color:#fff;padding:30px 0 26px}
+.searchhead .crumb{font-size:12.5px;color:rgba(255,255,255,.7);margin-bottom:8px}
+.searchhead .crumb a{color:rgba(255,255,255,.85)}
+.searchhead h2{font-family:var(--serif);font-size:25px;font-weight:600}
+.searchbar{background:#fff;border-radius:12px;box-shadow:0 14px 38px rgba(40,0,0,.16);padding:20px;margin-top:18px;border-top:3px solid var(--gold-2)}
+.sb-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld label{font-size:12px;font-weight:600;color:#555}
+.fld input,.fld select{font:inherit;font-size:14.5px;padding:11px 13px;border:1.5px solid #ddcfc2;border-radius:7px;background:#fff;color:var(--ink);width:100%}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(192,0,0,.1)}
+.adv{display:none;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.adv.open{display:grid}
+.sb-actions{display:flex;gap:10px;align-items:flex-end}
+.sb-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.linkbtn{background:none;border:none;color:var(--red);font:inherit;font-weight:600;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+
+/* results layout */
+.results-wrap{display:grid;grid-template-columns:248px 1fr;gap:26px;padding:38px 0}
+.filters{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;align-self:start;position:sticky;top:160px}
+.filters h4{font-family:var(--serif);font-size:15px;color:var(--red-3);margin-bottom:6px}
+.fgroup{padding:14px 0;border-bottom:1px solid var(--line)}
+.fgroup:last-child{border-bottom:none;padding-bottom:0}
+.fgroup .ft{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#8a7c70;margin-bottom:9px}
+.fgroup label{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);padding:4px 0;cursor:pointer}
+.fgroup label input{width:auto;accent-color:var(--red)}
+.fgroup label .ct{margin-left:auto;color:#aaa;font-size:12px}
+.results-main{min-width:0}
+.results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.results-bar .count{font-size:14px;color:var(--muted)}
+.results-bar .count b{color:var(--red);font-family:var(--serif)}
+.results-bar .tools{display:flex;gap:10px;align-items:center}
+.results-bar select{font:inherit;font-size:13.5px;padding:7px 11px;border:1.5px solid var(--line);border-radius:7px;background:#fff}
+.viewtoggle{display:flex;border:1.5px solid var(--line);border-radius:7px;overflow:hidden}
+.viewtoggle button{background:#fff;border:none;padding:7px 11px;cursor:pointer;color:#999;display:flex;align-items:center}
+.viewtoggle button.on{background:var(--red);color:#fff}
+
+.grave-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grave-grid.list{grid-template-columns:1fr}
+.gcard{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;transition:box-shadow .18s,transform .18s,border-color .18s}
+.gcard:hover{box-shadow:0 14px 32px rgba(60,0,0,.13);transform:translateY(-3px);border-color:#e6c9c9}
+.gcard .photo{height:188px;background:linear-gradient(160deg,#6e6258,#403831);position:relative;display:flex;align-items:center;justify-content:center}
+.gcard .photo .stone{width:96px;height:120px;background:linear-gradient(180deg,#d9d2c8,#b3a899);border-radius:48px 48px 6px 6px;box-shadow:inset 0 4px 12px rgba(255,255,255,.4),0 6px 14px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#5e0000}
+.gcard .photo .star{font-size:17px;color:var(--gold)}
+.gcard .photo .stone .lines{width:54px;height:3px;background:rgba(94,0,0,.25);border-radius:2px}
+.gcard .photo .stone .lines.short{width:34px}
+.gcard .idstat{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:5px;backdrop-filter:blur(3px)}
+.b-id{background:rgba(31,138,76,.92);color:#fff}
+.b-unid{background:rgba(184,134,11,.92);color:#fff}
+.gcard .ginfo{padding:15px 16px 17px}
+.gcard .gname{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--red-3)}
+.gcard .gyear{font-size:13px;color:var(--gold);font-weight:600;margin-top:2px}
+.gcard .gmeta{font-size:13px;color:var(--muted);margin-top:9px;display:flex;flex-direction:column;gap:3px}
+.gcard .gmeta span{display:flex;gap:7px;align-items:flex-start}
+.gcard .gmeta .k{color:#b3a89c;flex:0 0 16px}
+.gcard.listrow{display:grid;grid-template-columns:140px 1fr auto;align-items:center}
+.gcard.listrow .photo{height:130px}
+.gcard.listrow .photo .stone{width:64px;height:84px;border-radius:32px 32px 4px 4px}
+.gcard.listrow .ginfo{padding:16px 20px}
+.gcard.listrow .rowcta{padding-right:20px}
+
+/* pagination */
+.pager{display:flex;justify-content:center;gap:6px;margin-top:34px}
+.pager button{min-width:38px;height:38px;border:1.5px solid var(--line);background:#fff;border-radius:8px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.pager button.on{background:var(--red);color:#fff;border-color:var(--red)}
+.pager button:hover:not(.on){background:var(--red-bg)}
+.pager button:disabled{opacity:.4;cursor:default}
+
+/* empty state */
+.empty{text-align:center;background:#fff;border:1px dashed #e0c9c9;border-radius:14px;padding:48px 30px}
+.empty .ic{width:78px;height:78px;border-radius:50%;background:var(--red-bg);color:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.empty h3{font-family:var(--serif);font-size:21px;color:var(--red-3)}
+.empty p{color:var(--muted);max-width:440px;margin:10px auto 0;font-size:14px}
+.empty .hot{margin-top:18px;display:inline-flex;align-items:center;gap:10px;background:var(--red-bg);border:1px solid #f0c4c4;border-radius:10px;padding:12px 18px;font-weight:600;color:var(--red)}
+
+/* ===== Modal: grave detail ===== */
+.modal-bg{position:fixed;inset:0;background:rgba(30,0,0,.62);backdrop-filter:blur(3px);z-index:90;display:flex;align-items:flex-start;justify-content:center;padding:40px 18px;overflow:auto}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:920px;box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden;animation:pop .2s ease}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.modal .mhead{background:linear-gradient(180deg,var(--red-2),var(--red-3));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.modal .mhead h3{font-family:var(--serif);font-size:20px;font-weight:600}
+.modal .mhead .x{background:rgba(255,255,255,.15);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal .mhead .x:hover{background:rgba(255,255,255,.28)}
+.mbody{padding:24px;display:grid;grid-template-columns:300px 1fr;gap:24px}
+.dphoto{background:linear-gradient(160deg,#6e6258,#403831);border-radius:12px;height:300px;display:flex;align-items:center;justify-content:center;position:relative}
+.dphoto .stone{width:128px;height:166px;background:linear-gradient(180deg,#d9d2c8,#b3a899);border-radius:64px 64px 8px 8px;box-shadow:inset 0 5px 14px rgba(255,255,255,.4),0 8px 18px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#5e0000}
+.dphoto .stone .star{font-size:24px;color:var(--gold)}
+.dphoto .stone .lines{width:74px;height:4px;background:rgba(94,0,0,.25);border-radius:2px}
+.dphoto .stone .lines.short{width:46px}
+.dphoto .qr{position:absolute;bottom:12px;right:12px;width:64px;height:64px;background:#fff;border-radius:8px;padding:5px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.dphoto .qr svg{width:100%;height:100%}
+.dinfo .dname{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--red-3)}
+.dbadges{display:flex;gap:8px;margin:10px 0 16px;flex-wrap:wrap}
+.badge{font-size:12px;font-weight:700;padding:5px 11px;border-radius:6px}
+.badge.id{background:#e6f4ec;color:#1f8a4c;border:1px solid #b6e0c6}
+.badge.unid{background:#fdf3dd;color:#9a6b00;border:1px solid #f0d28a}
+.badge.nt{background:var(--red-bg);color:var(--red);border:1px solid #f0c4c4}
+.dtable{width:100%;border-collapse:collapse;font-size:14px}
+.dtable th,.dtable td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.dtable th{width:130px;color:#8a7c70;font-weight:600;background:#faf6f3}
+.dmap{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dmap .maphead{background:#faf6f3;padding:10px 14px;font-size:13px;font-weight:600;color:#555;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.dmap .plot{height:180px;position:relative;background:
+  linear-gradient(90deg,rgba(192,0,0,.05) 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(0deg,rgba(192,0,0,.05) 1px,transparent 1px) 0 0/40px 40px,
+  #fbf8f6}
+.dmap .pin{position:absolute;left:34%;top:42%;transform:translate(-50%,-100%);color:var(--red);font-size:30px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.3));animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,-100%)}50%{transform:translate(-50%,-112%)}}
+.dmap .lblmap{position:absolute;left:34%;top:46%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.dactions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.modal .mfoot{background:#faf6f3;padding:14px 24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);text-align:center}
+
+/* ===== Footer ===== */
+footer.site{background:linear-gradient(180deg,#5e0000,#320000);color:rgba(255,255,255,.8);padding:48px 0 0;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px;padding-bottom:36px}
+footer.site h4{font-family:var(--serif);color:#fff;font-size:16px;margin-bottom:14px;font-weight:600}
+footer.site .org-name{color:var(--gold-2);font-weight:600;font-family:var(--serif);font-size:15px}
+footer.site p{margin-top:8px;line-height:1.7}
+footer.site a{color:rgba(255,255,255,.8)}footer.site a:hover{color:#fff}
+.foot-links{display:flex;flex-direction:column;gap:9px}
+.hotline{background:rgba(244,201,93,.1);border:1px solid rgba(244,201,93,.3);border-radius:10px;padding:14px 16px}
+.hotline .num{font-family:var(--serif);font-size:22px;color:var(--gold-2);font-weight:700}
+.hotline .lab{font-size:12px;color:rgba(255,255,255,.7);margin-top:2px}
+.foot-bot{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;text-align:center;font-size:12.5px;color:rgba(255,255,255,.6)}
+.foot-bot a{color:var(--gold-2)}
+
+/* toast */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:10px;font-size:14px;font-weight:500;box-shadow:0 12px 32px rgba(0,0,0,.3);opacity:0;transition:.25s;z-index:120;display:flex;gap:10px;align-items:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast .dot{color:var(--gold-2)}
+
+/* ===== Responsive ===== */
+@media(max-width:920px){
+  .entry-cards{grid-template-columns:1fr;margin-top:-56px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+  .news-grid{grid-template-columns:1fr 1fr}
+  .steps4{grid-template-columns:1fr 1fr;gap:30px 20px}
+  .sb-row{grid-template-columns:1fr 1fr}
+  .adv.open{grid-template-columns:1fr 1fr}
+  .results-wrap{grid-template-columns:1fr}
+  .filters{position:static}
+  .grave-grid{grid-template-columns:1fr 1fr}
+  .mbody{grid-template-columns:1fr}
+  .dphoto{height:260px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .topbar .left{display:none}
+  .brandtext h1{font-size:16px}.brandtext .sub{display:none}
+  .emblem{width:48px;height:48px;flex-basis:48px}.emblem svg{width:28px;height:28px}
+  nav.main .wrap{flex-direction:column;overflow:visible}
+  nav.main{max-height:0;overflow:hidden;transition:max-height .25s}
+  nav.main.open{max-height:500px}
+  nav.main a{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+  nav.main a:first-child{border-left:none}
+  .navtoggle{display:flex;align-items:center;gap:8px;background:var(--red-2);border:none;color:#fff;width:100%;justify-content:center;padding:11px;font:inherit;font-weight:600;cursor:pointer}
+  .hero h2{font-size:25px}.hero{padding:48px 18px 92px}
+  .qsearch{flex-direction:column}
+  .news-grid,.steps4,.grave-grid,.grave-grid.list{grid-template-columns:1fr}
+  .sb-row,.adv.open{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat .num{font-size:32px}
+  .gcard.listrow{grid-template-columns:1fr}
+  .gcard.listrow .photo{height:150px}
+  .gcard.listrow .rowcta{padding:0 20px 18px}
+  .foot-grid{grid-template-columns:1fr}
+  .sec-head h3{font-size:22px}
+}
+
+/* ===== A-/A/A+ + nav active underline + dropdowns ===== */
+.fsz{display:flex;gap:3px;align-items:center;margin-left:8px}
+.fsz button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;font-family:var(--sans);font-weight:700;border-radius:4px;cursor:pointer;line-height:1;padding:4px 8px}
+.fsz button:hover{background:rgba(255,255,255,.16)}
+.fsz .a1{font-size:10px}.fsz .a2{font-size:12px}.fsz .a3{font-size:14px}
+nav.main a.active{background:var(--red);color:#fff;position:relative}
+nav.main a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:3px;background:var(--gold-2);border-radius:2px}
+.has-drop{position:relative;display:flex}
+.dropmenu{position:absolute;top:100%;left:0;background:#fff;min-width:240px;box-shadow:0 14px 34px rgba(60,0,0,.22);border-radius:0 0 8px 8px;border-top:2px solid var(--gold);padding:6px 0;display:none;z-index:50}
+.has-drop:hover .dropmenu{display:block}
+.dropmenu a{color:var(--ink)!important;border:none!important;padding:10px 16px!important;font-weight:500;font-size:13.5px;white-space:normal}
+.dropmenu a:hover{background:var(--red-bg);text-decoration:none}
+
+/* ===== Short page hero ===== */
+.pagehero{position:relative;color:#fff;text-align:center;padding:46px 22px;overflow:hidden;background:linear-gradient(180deg,rgba(45,0,0,.55),rgba(18,0,0,.82)),radial-gradient(circle at 50% 20%,#a30606,#5e0000 70%)}
+.pagehero .crumb{font-size:12.5px;color:rgba(255,255,255,.72);margin-bottom:8px}
+.pagehero .crumb a{color:rgba(255,255,255,.9)}
+.pagehero h2{font-family:var(--serif);font-size:30px;font-weight:600}
+.pagehero .heroline{margin-top:8px;color:rgba(255,255,255,.82);font-size:14.5px}
+.minicount{display:flex;justify-content:center;gap:34px;margin-top:22px;flex-wrap:wrap}
+.minicount .mc{text-align:center}
+.minicount .mc .n{font-family:var(--serif);font-size:27px;font-weight:700;color:var(--gold-2)}
+.minicount .mc .l{font-size:12px;color:rgba(255,255,255,.78);margin-top:2px}
+
+/* ===== Nghĩa trang map + cards ===== */
+.nt-toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.nt-toolbar input{flex:1;min-width:200px;font:inherit;font-size:14.5px;padding:11px 14px;border:1.5px solid #ddcfc2;border-radius:8px}
+.nt-toolbar select{font:inherit;font-size:14px;padding:11px 12px;border:1.5px solid #ddcfc2;border-radius:8px;background:#fff}
+.nt-modetoggle{display:flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+.nt-modetoggle button{background:#fff;border:none;padding:9px 14px;cursor:pointer;color:#888;font:inherit;font-weight:600;font-size:13px}
+.nt-modetoggle button.on{background:var(--red);color:#fff}
+.maparea{position:relative;height:460px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#e8efe6,#dfe7df)}
+.maparea .mapbg{position:absolute;inset:0;opacity:.55;background:radial-gradient(circle at 28% 38%,#cfe0cb,transparent 42%),radial-gradient(circle at 72% 62%,#caddd6,transparent 46%),repeating-linear-gradient(0deg,rgba(120,140,110,.13) 0 1px,transparent 1px 38px),repeating-linear-gradient(90deg,rgba(120,140,110,.13) 0 1px,transparent 1px 38px)}
+.maparea .river{position:absolute;left:-5%;right:-5%;top:52%;height:46px;background:rgba(110,160,200,.32);transform:rotate(-7deg)}
+.maparea .reglbl{position:absolute;font-size:12px;color:#7d8a76;font-weight:600;letter-spacing:.04em}
+.mappin{position:absolute;transform:translate(-50%,-100%);cursor:pointer;z-index:2}
+.mappin .dot{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;background:var(--red);border-radius:50% 50% 50% 50%;box-shadow:0 4px 8px rgba(0,0,0,.35);border:2px solid #fff}
+.mappin .nm{position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;font-size:11px;padding:2px 7px;border-radius:4px;white-space:nowrap;opacity:0;transition:.15s;pointer-events:none}
+.mappin:hover .nm{opacity:1}
+.mappin:hover .dot{background:var(--gold)}
+.mappop{position:absolute;z-index:6;width:262px;background:#fff;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.32);overflow:hidden;border-top:3px solid var(--red)}
+.mappop .pp-img{height:96px;background:linear-gradient(135deg,#8a0f0f,#5e0000);position:relative}
+.mappop .pp-body{padding:12px 14px}
+.mappop h5{font-family:var(--serif);font-size:15px;color:var(--red-3)}
+.mappop .x{position:absolute;top:6px;right:8px;background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;z-index:1}
+.nt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ntcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+.ntcard:hover{box-shadow:0 16px 38px rgba(60,0,0,.13);transform:translateY(-3px)}
+.ntcard .cover{height:160px;position:relative;background:linear-gradient(135deg,#7a0f0f,#4a0000);display:flex;align-items:flex-end;padding:14px}
+.ntcard .cover::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 40%,rgba(255,212,120,.05) 0 6deg,transparent 6deg 18deg)}
+.ntcard .cover h4{position:relative;z-index:1;font-family:var(--serif);color:#fff;font-size:19px;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.ntcard .nb{padding:16px}
+.ntcard .addr{font-size:13.5px;color:var(--muted);display:flex;gap:7px;align-items:flex-start}
+.ntchips{display:flex;gap:8px;margin:11px 0}
+.chip{font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:20px}
+.chip.red{background:var(--red-bg);color:var(--red)}
+.chip.gray{background:#eee;color:#666}
+.nt-mini{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.nt-mini div{flex:1;text-align:center;padding:9px 4px;border-right:1px solid var(--line)}
+.nt-mini div:last-child{border-right:none}
+.nt-mini .n{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--red)}
+.nt-mini .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+.ntcard .row2{display:flex;gap:8px}
+.ntcard .row2 .btn{flex:1}
+
+/* ===== NT detail ===== */
+.ntd-hero{position:relative;height:300px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:linear-gradient(180deg,rgba(30,0,0,.25),rgba(18,0,0,.8)),linear-gradient(135deg,#7a0f0f,#3a0000)}
+.ntd-hero::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 30%,rgba(255,212,120,.045) 0 6deg,transparent 6deg 18deg)}
+.ntd-hero .inner{position:relative;z-index:1;padding:26px 0;width:100%}
+.ntd-hero .crumb{font-size:12.5px;color:rgba(255,255,255,.8);margin-bottom:8px}
+.ntd-hero .crumb a{color:#fff}
+.ntd-hero h2{font-family:var(--serif);font-size:38px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.ntd-hero .sub{margin-top:8px;font-size:14.5px;color:rgba(255,255,255,.88);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ntd-actions{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.ntd-actions .wrap{display:flex;gap:8px;padding:10px 22px;overflow-x:auto;scrollbar-width:none}
+.ntd-actions .wrap::-webkit-scrollbar{display:none}
+.ntd-actions button{flex:0 0 auto;background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:9px 14px;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;gap:7px;align-items:center}
+.ntd-actions button:hover{background:var(--red-bg);border-color:#e6c9c9;color:var(--red)}
+.ntd-tabs{background:#fff;border-bottom:2px solid var(--line)}
+.ntd-tabs .wrap{display:flex;overflow-x:auto;scrollbar-width:none}
+.ntd-tabs .wrap::-webkit-scrollbar{display:none}
+.ntd-tabs button{flex:0 0 auto;background:none;border:none;border-bottom:3px solid transparent;padding:14px 18px;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap}
+.ntd-tabs button.on{color:var(--red);border-bottom-color:var(--red)}
+.ntd-pane{display:none}.ntd-pane.on{display:block}
+.kvtable{width:100%;border-collapse:collapse;font-size:14.5px}
+.kvtable th,.kvtable td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.kvtable th{width:160px;color:#8a7c70;font-weight:600;background:#faf6f3}
+.donut{width:160px;height:160px;border-radius:50%;background:conic-gradient(var(--red) 0 var(--p,75%),#e0d6d6 0);position:relative;margin:0 auto}
+.donut::after{content:"";position:absolute;inset:26px;background:#fff;border-radius:50%}
+.donut .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1}
+.donut .c b{font-family:var(--serif);font-size:24px;color:var(--red)}
+.barrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+.barrow .bl{width:130px;color:var(--muted);text-align:right;flex:0 0 130px}
+.barrow .bt{flex:1;background:#efe6e6;border-radius:6px;height:18px;overflow:hidden}
+.barrow .bt i{display:block;height:100%;background:linear-gradient(90deg,var(--red-2),var(--red));border-radius:6px}
+.barrow .bv{width:46px;font-weight:600;color:var(--ink)}
+.ntplot{height:440px;border-radius:12px;border:1px solid var(--line);position:relative;background:repeating-linear-gradient(0deg,rgba(120,0,0,.05) 0 1px,transparent 1px 40px),repeating-linear-gradient(90deg,rgba(120,0,0,.05) 0 1px,transparent 1px 40px),#fbf8f6;overflow:hidden}
+.ntplot .zone{position:absolute;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;color:#fff}
+
+/* leaders, video, album, intro, contact */
+.leader-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.leader{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.leader .av{width:74px;height:74px;border-radius:50%;flex:0 0 74px;background:radial-gradient(circle at 50% 35%,#d11a1a,#7a0000);display:flex;align-items:center;justify-content:center;color:var(--gold-2);font-size:30px}
+.leader h5{font-family:var(--serif);font-size:17px;color:var(--red-3)}
+.leader .pos{color:var(--gold);font-weight:600;font-size:13px;margin:3px 0 6px}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vthumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#fff}
+.vthumb .vp{height:170px;background:linear-gradient(135deg,#5a0a0a,#2a0000);position:relative;display:flex;align-items:center;justify-content:center}
+.vthumb .play{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:20px;padding-left:5px}
+.vthumb .dur{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.7);color:#fff;font-size:11px;padding:2px 7px;border-radius:4px}
+.vthumb .vt{padding:13px 14px;font-weight:600;font-size:14.5px}
+.album-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:12px}
+.album-grid .ph{border-radius:10px;background:linear-gradient(135deg,#6e6258,#403831);position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:10px;color:#fff}
+.album-grid .ph.big{grid-column:span 2;grid-row:span 2}
+.album-grid .ph .cap{position:relative;z-index:1;font-size:12.5px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.album-grid .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55))}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.intro-side{display:grid;grid-template-columns:1.5fr .8fr;gap:28px;align-items:start}
+.prose{font-size:15.5px;line-height:1.85;color:#333}
+.prose h3{font-family:var(--serif);color:var(--red-3);font-size:21px;margin:20px 0 10px}
+.prose p{margin-bottom:12px}
+.prose ul{margin:0 0 12px 20px}
+.prose li{margin-bottom:6px}
+.sidemenu{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.sidemenu a{display:block;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--ink);font-weight:500;font-size:14px}
+.sidemenu a:last-child{border-bottom:none}
+.sidemenu a.on,.sidemenu a:hover{background:var(--red-bg);color:var(--red);text-decoration:none}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.formcard .fld{margin-bottom:14px}
+.formcard label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:#555}
+.formcard input,.formcard textarea,.formcard select{width:100%;font:inherit;font-size:15px;padding:11px 13px;border:1.5px solid #ddcfc2;border-radius:8px}
+.mapembed{height:340px;border-radius:12px;border:1px solid var(--line);background:repeating-linear-gradient(0deg,rgba(120,140,110,.1) 0 1px,transparent 1px 36px),repeating-linear-gradient(90deg,rgba(120,140,110,.1) 0 1px,transparent 1px 36px),linear-gradient(135deg,#e8efe6,#dfe7df);display:flex;align-items:center;justify-content:center;color:#8a9a86;font-weight:600}
+.visit{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.visit .vc{background:rgba(244,201,93,.08);border:1px solid rgba(244,201,93,.22);border-radius:8px;padding:7px 11px;text-align:center;min-width:74px}
+.visit .vc .n{font-family:var(--serif);color:var(--gold-2);font-weight:700;font-size:15px}
+.visit .vc .l{font-size:10.5px;color:rgba(255,255,255,.7);margin-top:1px}
+.sysrow{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start}
+.calbox{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.calbox .ci{display:flex;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
+.calbox .ci:last-child{border-bottom:none}
+.calbox .d{width:50px;height:50px;flex:0 0 50px;border-radius:8px;background:var(--red-bg);color:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;line-height:1}
+.calbox .d small{font-size:10px;font-weight:600}
+@media(max-width:920px){
+  .nt-grid,.video-grid{grid-template-columns:1fr 1fr}
+  .leader-grid,.two-col,.intro-side,.sysrow{grid-template-columns:1fr}
+  .album-grid{grid-template-columns:repeat(2,1fr)}
+  .ntd-hero h2{font-size:30px}
+}
+@media(max-width:680px){
+  .nt-grid,.video-grid,.album-grid{grid-template-columns:1fr}
+  .album-grid .ph.big{grid-column:span 1;grid-row:span 1}
+  .ntd-hero h2{font-size:26px}
+  .has-drop{flex-direction:column}
+  .has-drop .dropmenu{position:static;box-shadow:none;display:block;background:rgba(0,0,0,.14);border-radius:0}
+  .has-drop .dropmenu a{color:#fff!important;padding:11px 26px!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar"><div class="wrap">
+  <div class="left">
+    <span>🕐 Thứ Hai, 08/06/2026</span>
+    <span>📍 Thành phố Đồng Nai</span>
+  </div>
+  <div class="right">
+    <a href="#" onclick="toast('Khu vực đăng nhập dành cho cán bộ quản trị');return false">🔐 Đăng nhập quản trị</a>
+    <div class="fsz" title="Cỡ chữ"><button class="a1" onclick="fontScale(-1)">A−</button><button class="a2" onclick="fontScale(0)">A</button><button class="a3" onclick="fontScale(1)">A+</button></div>
+    <div class="lang">
+      <button class="on" onclick="setLang(this,'vi')">VI</button>
+      <button onclick="setLang(this,'en')">EN</button>
+    </div>
+  </div>
+</div></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap brandrow">
+    <div class="emblem" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.6l2.6 6.3 6.8.5-5.2 4.4 1.7 6.6L12 17.3 6.1 20.9l1.7-6.6L2.6 9.9l6.8-.5L12 2.6z" fill="#f4c95d" stroke="#f4c95d" stroke-width="1" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="brandtext">
+      <div class="org">Sở Lao động – Thương binh &amp; Xã hội · Ban Quản lý nghĩa trang</div>
+      <h1>Cổng thông tin nghĩa trang liệt sĩ, nghĩa trang cán bộ &amp; người có công</h1>
+      <div class="sub">Thành phố Đồng Nai — Tri ân · Ghi nhớ · Phụng sự</div>
+    </div>
+    <button class="searchbtn" onclick="goView('tracuu');setTimeout(function(){var e=document.getElementById('sb_name');if(e)e.focus();},60)" aria-label="Tìm kiếm">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
+  </div>
+  <button class="navtoggle" onclick="document.querySelector('nav.main').classList.toggle('open')">☰ Danh mục</button>
+  <nav class="main"><div class="wrap">
+    <a href="#" class="nav-link active" data-view="home" onclick="goView('home');return false">Trang Chủ</a>
+    <div class="has-drop"><a href="#" class="nav-link" data-view="gioithieu" onclick="goView('gioithieu');return false">Giới Thiệu ▾</a><div class="dropmenu"><a href="#" onclick="goView('gioithieu','chucnang');return false">Chức năng – nhiệm vụ</a><a href="#" onclick="goView('gioithieu','quyche');return false">Quy chế làm việc</a><a href="#" onclick="goView('gioithieu','phancong');return false">Phân công nhiệm vụ</a><a href="#" onclick="goView('gioithieu','lanhdao');return false">Lãnh đạo Ban</a></div></div>
+    <a href="#" class="nav-link" data-view="tracuu" onclick="goView('tracuu');return false">Tra Cứu Liệt Sĩ</a>
+    <a href="#" class="nav-link" data-view="nghiatrang" onclick="goView('nghiatrang');return false">Hệ Thống Nghĩa Trang</a>
+    <div class="has-drop"><a href="#" class="nav-link" data-view="tintuc" onclick="goView('tintuc');return false">Tin Tức – Sự Kiện ▾</a><div class="dropmenu"><a href="#" onclick="goView('tintuc');return false">Hoạt động đền ơn đáp nghĩa</a><a href="#" onclick="goView('tintuc');return false">Chuyển đổi số</a><a href="#" onclick="goView('tintuc');return false">Thông báo</a></div></div>
+    <a href="#" class="nav-link" data-view="hinhanh" onclick="goView('hinhanh');return false">Hình Ảnh Hoạt Động</a>
+    <a href="#" class="nav-link" data-view="video" onclick="goView('video');return false">Video Clip</a>
+    <a href="#" class="nav-link" data-view="lienhe" onclick="goView('lienhe');return false">Liên Hệ</a>
+  </div></nav>
+</header>
+
+<!-- ============ HOME VIEW ============ -->
+<main id="view-home">
+  <section class="hero">
+    <div class="ribbon">ĐỜI ĐỜI NHỚ ƠN CÁC ANH HÙNG LIỆT SĨ</div>
+    <hr class="rule">
+    <h2>Tra cứu thông tin liệt sĩ, phần mộ và nghĩa trang trên địa bàn Thành phố Đồng Nai</h2>
+    <p class="lead">Cổng thông tin phục vụ thân nhân và nhân dân tra cứu, kết nối và tri ân các anh hùng liệt sĩ, người có công với cách mạng.</p>
+    <form class="qsearch" onsubmit="quickSearch();return false">
+      <input id="q_home" placeholder="Nhập họ tên liệt sĩ, quê quán, đơn vị hoặc năm sinh…">
+      <button class="btn gold" type="submit">🔍 Tìm mộ ngay</button>
+    </form>
+    <div class="quicklinks">
+      <a href="#" onclick="goView('tracuu');return false">Tra cứu liệt sĩ – mộ – thân nhân</a>
+      <a href="#" onclick="goView('nghiatrang');return false">Tra cứu các nghĩa trang liệt sĩ</a>
+    </div>
+  </section>
+
+  <!-- Entry cards -->
+  <div class="wrap">
+    <div class="entry-cards">
+      <div class="entry">
+        <div class="ic"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h4>Tra cứu thông tin liệt sĩ – mộ – thân nhân</h4>
+        <p>Tìm kiếm theo họ tên, quê quán, đơn vị, năm hy sinh và xác định vị trí phần mộ chính xác trên sơ đồ nghĩa trang.</p>
+        <button class="btn block" onclick="goView('tracuu')">Bắt đầu tra cứu →</button>
+      </div>
+      <div class="entry">
+        <div class="ic"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+        <h4>Tra cứu các nghĩa trang liệt sĩ</h4>
+        <p>Thông tin, vị trí, sơ đồ và hướng dẫn đường đi tới 3 nghĩa trang trên địa bàn Thành phố Đồng Nai.</p>
+        <button class="btn ghost block" onclick="goView('nghiatrang')">Xem danh sách nghĩa trang →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <section class="stats band" style="padding:0;margin-top:48px">
+    <div class="wrap"><div class="stats-grid">
+      <div class="stat">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></div>
+        <div class="num"><span data-count="3">0</span></div>
+        <div class="lab">Nghĩa trang quản lý</div>
+      </div>
+      <div class="stat">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-1-7-5-9-5-13a5 5 0 0110 0c0 4-4 6-5 13z"/></svg></div>
+        <div class="num"><span data-count="12480">0</span></div>
+        <div class="lab">Phần mộ đang quản lý</div>
+      </div>
+      <div class="stat">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="num"><span data-count="9860">0</span></div>
+        <div class="lab">Mộ đã xác định danh tính</div>
+      </div>
+      <div class="stat">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div class="num"><span data-count="148520">0</span></div>
+        <div class="lab">Lượt tra cứu</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- News -->
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Tin tức · Thông báo</div>
+        <h3>Hoạt động tri ân &amp; thông báo mới</h3>
+        <div class="deco"></div>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section class="band guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Hướng dẫn</div>
+        <h3>Tra cứu phần mộ trong 4 bước</h3>
+        <div class="deco"></div>
+      </div>
+      <div class="steps4">
+        <div class="gstep"><div class="n"></div><h5>Nhập thông tin</h5><p>Nhập họ tên liệt sĩ, quê quán hoặc năm hy sinh vào ô tra cứu.</p></div>
+        <div class="gstep"><div class="n"></div><h5>Lọc kết quả</h5><p>Thu hẹp theo nghĩa trang, tình trạng danh tính, năm hy sinh.</p></div>
+        <div class="gstep"><div class="n"></div><h5>Xem chi tiết mộ</h5><p>Xem ảnh bia, vị trí trên sơ đồ và hướng dẫn đường đi.</p></div>
+        <div class="gstep"><div class="n"></div><h5>Đăng ký viếng</h5><p>Đăng ký viếng, thắp hương trực tuyến hoặc gửi yêu cầu bổ sung.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ TRA CỨU VIEW ============ -->
+<main id="view-tracuu" class="hidden">
+  <div class="searchhead"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Tra cứu thông tin liệt sĩ – mộ</div>
+    <h2>Tra cứu thông tin liệt sĩ – phần mộ – thân nhân</h2>
+    <div class="searchbar">
+      <div class="sb-row">
+        <div class="fld"><label>Họ và tên liệt sĩ</label><input id="sb_name" placeholder="VD: Trần Văn Hùng" oninput="runSearch()"></div>
+        <div class="fld"><label>Năm sinh</label><input id="sb_birth" placeholder="VD: 1948" oninput="runSearch()"></div>
+        <div class="fld"><label>Năm hy sinh</label><input id="sb_die" placeholder="VD: 1972" oninput="runSearch()"></div>
+        <div class="sb-actions"><button class="btn" onclick="runSearch(true)">🔍 Tìm kiếm</button></div>
+      </div>
+      <div class="adv" id="advBox">
+        <div class="fld"><label>Quê quán — Tỉnh/Thành</label><select id="sb_prov" onchange="runSearch()"><option value="">— Tất cả —</option><option>Đồng Nai</option><option>Nghệ An</option><option>Thái Bình</option><option>Quảng Nam</option><option>Hà Nội</option></select></div>
+        <div class="fld"><label>Đơn vị</label><select id="sb_unit" onchange="runSearch()"><option value="">— Tất cả —</option><option>Sư đoàn 5</option><option>Đoàn 559</option><option>Trung đoàn 1</option><option>Tỉnh đội Đồng Nai</option></select></div>
+        <div class="fld"><label>Cấp bậc – chức vụ</label><select id="sb_rank" onchange="runSearch()"><option value="">— Tất cả —</option><option>Binh nhất</option><option>Hạ sĩ</option><option>Trung sĩ</option><option>Thượng sĩ</option><option>Thiếu úy</option></select></div>
+        <div class="fld"><label>Nơi an táng (nghĩa trang)</label><select id="sb_nt" onchange="runSearch()"><option value="">— Tất cả —</option><option>NTLS Đồng Nai 1</option><option>NTLS Đồng Nai 2</option><option>NTCB Đồng Nai</option></select></div>
+        <div class="fld"><label>Số hiệu mộ</label><input id="sb_grave" placeholder="VD: A·3·7·12" oninput="runSearch()"></div>
+        <div class="fld"><label>Tình trạng danh tính</label><select id="sb_idstat" onchange="runSearch()"><option value="">— Tất cả —</option><option>Đã xác định</option><option>Chưa xác định</option></select></div>
+      </div>
+      <div class="sb-foot">
+        <button class="linkbtn" onclick="document.getElementById('advBox').classList.toggle('open');this.querySelector('.cv').textContent=document.getElementById('advBox').classList.contains('open')?'Thu gọn':'Tìm kiếm nâng cao'"><span>⚙️</span> <span class="cv">Tìm kiếm nâng cao</span></button>
+        <button class="linkbtn" onclick="resetSearch()" style="color:#8a7c70">↺ Đặt lại</button>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="wrap">
+    <div class="results-wrap">
+      <!-- filters -->
+      <aside class="filters">
+        <h4>Bộ lọc</h4>
+        <div class="fgroup">
+          <div class="ft">Nghĩa trang</div>
+          <label><input type="radio" name="fnt" value="" checked onchange="filterNT(this.value)"> Tất cả <span class="ct" id="cnt-all"></span></label>
+          <label><input type="radio" name="fnt" value="NTLS Đồng Nai 1" onchange="filterNT(this.value)"> NTLS Đồng Nai 1 <span class="ct" id="cnt-1"></span></label>
+          <label><input type="radio" name="fnt" value="NTLS Đồng Nai 2" onchange="filterNT(this.value)"> NTLS Đồng Nai 2 <span class="ct" id="cnt-2"></span></label>
+          <label><input type="radio" name="fnt" value="NTCB Đồng Nai" onchange="filterNT(this.value)"> NTCB Đồng Nai <span class="ct" id="cnt-3"></span></label>
+        </div>
+        <div class="fgroup">
+          <div class="ft">Tình trạng danh tính</div>
+          <label><input type="radio" name="fid" value="" checked onchange="filterID(this.value)"> Tất cả</label>
+          <label><input type="radio" name="fid" value="Đã xác định" onchange="filterID(this.value)"> Đã xác định danh tính</label>
+          <label><input type="radio" name="fid" value="Chưa xác định" onchange="filterID(this.value)"> Chưa xác định</label>
+        </div>
+        <div class="fgroup">
+          <div class="ft">Năm hy sinh</div>
+          <label><input type="radio" name="fyear" value="" checked onchange="filterYear(this.value)"> Tất cả</label>
+          <label><input type="radio" name="fyear" value="-1969" onchange="filterYear(this.value)"> Trước 1969</label>
+          <label><input type="radio" name="fyear" value="1969-1972" onchange="filterYear(this.value)"> 1969 – 1972</label>
+          <label><input type="radio" name="fyear" value="1973-" onchange="filterYear(this.value)"> Từ 1973</label>
+        </div>
+      </aside>
+
+      <!-- results -->
+      <div class="results-main">
+        <div class="results-bar">
+          <div class="count">Tìm thấy <b id="resCount">0</b> phần mộ phù hợp</div>
+          <div class="tools">
+            <select id="sortSel" onchange="renderResults()">
+              <option value="name">Sắp xếp: Họ tên (A→Z)</option>
+              <option value="year">Năm hy sinh (mới→cũ)</option>
+              <option value="nt">Theo nghĩa trang</option>
+            </select>
+            <div class="viewtoggle">
+              <button id="vgrid" class="on" onclick="setLayout('grid')" aria-label="Lưới"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+              <button id="vlist" onclick="setLayout('list')" aria-label="Danh sách"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="grave-grid" id="graveGrid"></div>
+        <div class="empty hidden" id="emptyState">
+          <div class="ic"><svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Không tìm thấy phần mộ phù hợp</h3>
+          <p>Vui lòng mở rộng tiêu chí tìm kiếm (bỏ bớt năm sinh/đơn vị), kiểm tra lại chính tả họ tên, hoặc gửi thông tin để Ban quản lý hỗ trợ tra tìm.</p>
+          <div class="hot">📞 Đường dây nóng tìm liệt sĩ: 0251 1080</div>
+          <div style="margin-top:16px"><button class="btn ghost" onclick="toast('Đã mở biểu mẫu gửi thông tin tìm liệt sĩ')">✉️ Gửi thông tin tìm liệt sĩ</button></div>
+        </div>
+        <div class="pager" id="pager"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ DỊCH VỤ / TIN TỨC (placeholder views) ============ -->
+<main id="view-dichvu" class="hidden">
+  <div class="searchhead"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Dịch vụ trực tuyến</div>
+    <h2>Dịch vụ trực tuyến</h2>
+  </div></div>
+  <div class="wrap band"><div class="news-grid" id="svcGrid"></div></div>
+</main>
+
+<main id="view-tintuc" class="hidden">
+  <div class="searchhead"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Tin tức – Thông báo</div>
+    <h2>Tin tức – Thông báo</h2>
+  </div></div>
+  <div class="wrap band"><div class="news-grid" id="newsGrid2"></div></div>
+</main>
+
+<!-- ============ HỆ THỐNG NGHĨA TRANG ============ -->
+<main id="view-nghiatrang" class="hidden">
+  <div class="pagehero">
+    <div class="wrap">
+      <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Hệ thống nghĩa trang</div>
+      <h2>Hệ thống nghĩa trang liệt sĩ – Thành phố Đồng Nai</h2>
+      <div class="heroline">Quản lý tập trung các nghĩa trang liệt sĩ, nghĩa trang cán bộ &amp; người có công trên địa bàn</div>
+      <div class="minicount">
+        <div class="mc"><div class="n">5</div><div class="l">Nghĩa trang</div></div>
+        <div class="mc"><div class="n">12.480</div><div class="l">Tổng phần mộ</div></div>
+        <div class="mc"><div class="n">9.860</div><div class="l">Đã xác định</div></div>
+        <div class="mc"><div class="n">4</div><div class="l">Huyện/thành phố</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap band">
+    <div class="nt-toolbar">
+      <input id="ntSearch" placeholder="🔍 Tìm theo tên hoặc địa chỉ nghĩa trang" oninput="renderNTList()">
+      <select id="ntFType" onchange="renderNTList()"><option value="">Tất cả loại</option><option>Liệt sĩ</option><option>Cán bộ – NCC</option><option>Kết hợp</option></select>
+      <select id="ntFDist" onchange="renderNTList()"><option value="">Tất cả huyện/TP</option><option>TP. Biên Hòa</option><option>H. Nhơn Trạch</option><option>H. Long Thành</option><option>TP. Long Khánh</option></select>
+      <select id="ntSort" onchange="renderNTList()"><option value="az">Sắp xếp: Tên A→Z</option><option value="mo">Theo số mộ</option><option value="dist">Theo huyện</option></select>
+      <div class="nt-modetoggle"><button id="ntmMap" class="on" onclick="ntMode('map')">🗺️ Bản đồ</button><button id="ntmList" onclick="ntMode('list')">☰ Danh sách</button></div>
+    </div>
+    <div id="ntMapWrap" style="margin-bottom:26px">
+      <div class="maparea" id="ntMap">
+        <div class="mapbg"></div><div class="river"></div>
+        <div class="reglbl" style="left:18%;top:18%">TP. BIÊN HÒA</div>
+        <div class="reglbl" style="left:62%;top:30%">H. NHƠN TRẠCH</div>
+        <div class="reglbl" style="left:24%;top:72%">H. LONG THÀNH</div>
+        <div class="reglbl" style="left:70%;top:70%">TP. LONG KHÁNH</div>
+      </div>
+    </div>
+    <div class="sec-head" style="text-align:left;margin-bottom:20px"><h3 style="font-size:21px">Danh sách nghĩa trang</h3><div class="deco" style="margin:10px 0 0"></div></div>
+    <div class="nt-grid" id="ntGrid"></div>
+  </div>
+</main>
+
+<!-- ============ CHI TIẾT NGHĨA TRANG ============ -->
+<main id="view-ntdetail" class="hidden">
+  <div class="ntd-hero" id="ntdHero"><div class="wrap inner" id="ntdHeroInner"></div></div>
+  <div class="ntd-actions"><div class="wrap">
+    <button onclick="toast('Đang mở chỉ đường tới nghĩa trang')">🧭 Chỉ đường</button>
+    <button onclick="toast('Đã mở biểu mẫu đăng ký viếng tập thể')">📅 Đăng ký viếng tập thể</button>
+    <button onclick="toast('Liên hệ Ban quản lý nghĩa trang')">📞 Liên hệ ban quản lý</button>
+    <button onclick="window.print()">🖨️ In thông tin</button>
+    <button onclick="toast('Đã sao chép liên kết nghĩa trang')">🔗 Chia sẻ</button>
+  </div></div>
+  <div class="ntd-tabs"><div class="wrap" id="ntdTabs"></div></div>
+  <div class="wrap band" id="ntdBody"></div>
+</main>
+
+<!-- ============ HÌNH ẢNH HOẠT ĐỘNG ============ -->
+<main id="view-hinhanh" class="hidden">
+  <div class="pagehero"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Hình ảnh hoạt động</div>
+    <h2>Hình ảnh hoạt động</h2>
+    <div class="heroline">Tư liệu hình ảnh các hoạt động tri ân, đền ơn đáp nghĩa</div>
+  </div></div>
+  <div class="wrap band" id="albumWrap"></div>
+</main>
+
+<!-- ============ VIDEO CLIP ============ -->
+<main id="view-video" class="hidden">
+  <div class="pagehero"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Video clip</div>
+    <h2>Video clip</h2>
+    <div class="heroline">Phóng sự, tư liệu &amp; hoạt động tri ân các anh hùng liệt sĩ</div>
+  </div></div>
+  <div class="wrap band"><div class="video-grid" id="videoGrid"></div></div>
+</main>
+
+<!-- ============ GIỚI THIỆU ============ -->
+<main id="view-gioithieu" class="hidden">
+  <div class="pagehero"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Giới thiệu</div>
+    <h2 id="gtTitle">Giới thiệu</h2>
+  </div></div>
+  <div class="wrap band">
+    <div class="intro-side">
+      <div id="gtBody" class="prose"></div>
+      <div>
+        <div class="sidemenu" id="gtMenu"></div>
+        <div class="formcard">
+          <h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:10px">Thông tin liên hệ Ban</h4>
+          <p style="font-size:13.5px;color:var(--muted);line-height:1.8">📍 Số 02 Nguyễn Ái Quốc, P. Tân Phong, TP. Biên Hòa<br>📞 0251 1080<br>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8d8e819e83819baf8b808188818e86c1888099c19981">[email&#160;protected]</a><br>🕐 T2–T6: 07:30–17:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ LIÊN HỆ ============ -->
+<main id="view-lienhe" class="hidden">
+  <div class="pagehero"><div class="wrap">
+    <div class="crumb"><a href="#" onclick="goView('home');return false">Trang chủ</a> › Liên hệ</div>
+    <h2>Liên hệ</h2>
+    <div class="heroline">Ban Quản lý nghĩa trang liệt sĩ Thành phố Đồng Nai</div>
+  </div></div>
+  <div class="wrap band">
+    <div class="two-col">
+      <div>
+        <div class="mapembed">🗺️ Bản đồ vị trí Ban Quản lý<br>(Google Maps embed)</div>
+        <div class="formcard" style="margin-top:18px">
+          <h4 class="serif" style="color:var(--red-3);font-size:17px;margin-bottom:12px">Thông tin liên hệ</h4>
+          <p style="line-height:1.9"><b>Địa chỉ:</b> Số 02 Nguyễn Ái Quốc, P. Tân Phong, TP. Biên Hòa, Đồng Nai<br>
+          <b>Đường dây nóng:</b> <span style="color:var(--red);font-weight:700">0251 1080</span><br>
+          <b>Email:</b> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3052515e415c5e4470545f5e575e51591e575f461e465e">[email&#160;protected]</a><br>
+          <b>Người chịu trách nhiệm:</b> Trưởng ban Quản lý nghĩa trang<br>
+          <b>Giờ làm việc:</b> Thứ Hai – Thứ Sáu, 07:30 – 17:00</p>
+        </div>
+      </div>
+      <div class="formcard">
+        <h4 class="serif" style="color:var(--red-3);font-size:18px;margin-bottom:16px">Gửi liên hệ</h4>
+        <div class="fld"><label>Họ và tên *</label><input placeholder="Nhập họ tên"></div>
+        <div class="two-col" style="gap:14px"><div class="fld"><label>Email *</label><input placeholder="email@…"></div><div class="fld"><label>Điện thoại</label><input placeholder="0xxx…"></div></div>
+        <div class="fld"><label>Tiêu đề *</label><input placeholder="Tiêu đề liên hệ"></div>
+        <div class="fld"><label>Nội dung *</label><textarea rows="5" placeholder="Nội dung cần gửi…"></textarea></div>
+        <div class="fld"><label>Mã xác nhận *</label><div style="display:flex;gap:10px;align-items:center"><span style="font-family:var(--serif);font-weight:700;letter-spacing:.3em;background:var(--red-bg);padding:8px 14px;border-radius:8px;color:var(--red-3)">7K2X9</span><input style="flex:1" placeholder="Nhập mã"></div></div>
+        <button class="btn block lg" onclick="toast('Đã gửi liên hệ. Ban quản lý sẽ phản hồi sớm.')">✉️ Gửi liên hệ</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Cơ quan chủ quản</h4>
+        <p class="org-name">Sở Lao động – Thương binh &amp; Xã hội Thành phố Đồng Nai</p>
+        <p>Ban Quản lý nghĩa trang liệt sĩ Thành phố Đồng Nai</p>
+        <p>📍 Số 02 Nguyễn Ái Quốc, P. Tân Phong, TP. Biên Hòa, Đồng Nai</p>
+        <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5d7d4dbc4d9dbc1f5d1dadbd2dbd4dc9bd2dac39bc3db">[email&#160;protected]</a></p>
+      </div>
+      <div>
+        <h4>Liên kết nhanh</h4>
+        <div class="foot-links">
+          <a href="#" onclick="goView('tracuu');return false">Tra cứu liệt sĩ – mộ</a>
+          <a href="#" onclick="goView('nghiatrang');return false">Danh sách nghĩa trang</a>
+          <a href="#" onclick="goView('dichvu');return false">Dịch vụ trực tuyến</a>
+          <a href="#" onclick="goView('tintuc');return false">Tin tức – Thông báo</a>
+        </div>
+      </div>
+      <div>
+        <h4>Liên kết Cổng DVC</h4>
+        <div class="foot-links">
+          <a href="#" onclick="toast('Liên kết Cổng Dịch vụ công Quốc gia');return false">Cổng DVC Quốc gia</a>
+          <a href="#" onclick="toast('Liên kết Cổng DVC tỉnh Đồng Nai');return false">Cổng DVC Đồng Nai</a>
+          <a href="#" onclick="toast('Cổng thông tin điện tử Đồng Nai');return false">Cổng TTĐT Đồng Nai</a>
+          <a href="#" onclick="toast('Bộ LĐ-TB&XH');return false">Bộ LĐ – TB &amp; XH</a>
+        </div>
+      </div>
+      <div>
+        <h4>Đường dây nóng</h4>
+        <div class="hotline">
+          <div class="num">0251 1080</div>
+          <div class="lab">Tiếp nhận thông tin liệt sĩ &amp; hỗ trợ thân nhân</div>
+        </div>
+        <p style="margin-top:12px">🕐 Thứ Hai – Thứ Sáu: 07:30 – 17:00</p>
+        <div class="visit" id="visitBox"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot"><div class="wrap">
+    © 2026 Ban Quản lý nghĩa trang liệt sĩ Thành phố Đồng Nai. Phát triển bởi <a href="#" onclick="return false">Sở LĐ-TB&amp;XH Đồng Nai</a>. Phiên bản thử nghiệm.
+  </div></div>
+</footer>
+
+<div id="modalRoot"></div>
+<div class="toast" id="toast"><span class="dot">●</span><span id="toastMsg"></span></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ===================== Dữ liệu demo ===================== */
+var GRAVES=[
+ {id:'LS-00012',name:'Trần Văn Hùng',birth:1948,die:1972,prov:'Nghệ An',home:'Nam Đàn, Nghệ An',unit:'Sư đoàn 5',rank:'Thượng sĩ',nt:'NTLS Đồng Nai 1',pos:'Khu A · Lô 3 · Hàng 7 · Mộ 12',idok:true,note:'Hy sinh trong chiến dịch giải phóng miền Đông Nam Bộ.'},
+ {id:'LS-00013',name:'Trần Văn Hậu',birth:1950,die:1972,prov:'Nghệ An',home:'Nam Đàn, Nghệ An',unit:'Sư đoàn 5',rank:'Trung sĩ',nt:'NTLS Đồng Nai 1',pos:'Khu A · Lô 3 · Hàng 7 · Mộ 13',idok:true,note:''},
+ {id:'LS-00045',name:'Phạm Thị Lan',birth:1951,die:1971,prov:'Thái Bình',home:'Tiền Hải, Thái Bình',unit:'Đoàn 559',rank:'Hạ sĩ',nt:'NTLS Đồng Nai 1',pos:'Khu B · Lô 1 · Hàng 2 · Mộ 04',idok:true,note:'Nữ liệt sĩ thanh niên xung phong.'},
+ {id:'LS-00067',name:'Đỗ Văn Thành',birth:1945,die:1968,prov:'Quảng Nam',home:'Điện Bàn, Quảng Nam',unit:'Trung đoàn 1',rank:'Thiếu úy',nt:'NTLS Đồng Nai 2',pos:'Khu A · Lô 2 · Hàng 5 · Mộ 21',idok:true,note:''},
+ {id:'LS-00071',name:'Nguyễn Văn Kế',birth:1947,die:1969,prov:'Hà Nội',home:'Thường Tín, Hà Nội',unit:'Sư đoàn 5',rank:'Binh nhất',nt:'NTLS Đồng Nai 2',pos:'Khu B · Lô 2 · Hàng 3 · Mộ 09',idok:true,note:''},
+ {id:'LS-00088',name:'Liệt sĩ chưa xác định danh tính',birth:0,die:1972,prov:'',home:'Chưa xác định',unit:'Chưa xác định',rank:'—',nt:'NTLS Đồng Nai 2',pos:'Khu C · Lô 4 · Hàng 1 · Mộ 33',idok:false,note:'Quy tập năm 2018, đang giám định ADN.'},
+ {id:'LS-00102',name:'Lê Quang Vinh',birth:1949,die:1973,prov:'Đồng Nai',home:'Long Thành, Đồng Nai',unit:'Tỉnh đội Đồng Nai',rank:'Trung sĩ',nt:'NTLS Đồng Nai 1',pos:'Khu C · Lô 2 · Hàng 4 · Mộ 18',idok:true,note:''},
+ {id:'LS-00118',name:'Hoàng Văn Sơn',birth:1946,die:1967,prov:'Quảng Nam',home:'Tam Kỳ, Quảng Nam',unit:'Đoàn 559',rank:'Hạ sĩ',nt:'NTCB Đồng Nai',pos:'Khu A · Lô 1 · Mộ 08',idok:true,note:''},
+ {id:'LS-00124',name:'Liệt sĩ chưa xác định danh tính',birth:0,die:1970,prov:'',home:'Chưa xác định',unit:'Chưa xác định',rank:'—',nt:'NTLS Đồng Nai 1',pos:'Khu D · Lô 1 · Hàng 6 · Mộ 02',idok:false,note:'Chưa có thông tin thân nhân.'},
+ {id:'LS-00133',name:'Vũ Đình Long',birth:1952,die:1974,prov:'Thái Bình',home:'Đông Hưng, Thái Bình',unit:'Trung đoàn 1',rank:'Binh nhất',nt:'NTCB Đồng Nai',pos:'Khu B · Lô 1 · Mộ 27',idok:true,note:''},
+ {id:'LS-00140',name:'Phan Văn Cường',birth:1944,die:1966,prov:'Nghệ An',home:'Diễn Châu, Nghệ An',unit:'Sư đoàn 5',rank:'Thượng sĩ',nt:'NTLS Đồng Nai 2',pos:'Khu A · Lô 4 · Hàng 2 · Mộ 11',idok:true,note:''},
+ {id:'LS-00155',name:'Trương Thị Bích',birth:1953,die:1972,prov:'Đồng Nai',home:'Biên Hòa, Đồng Nai',unit:'Đoàn 559',rank:'Hạ sĩ',nt:'NTLS Đồng Nai 1',pos:'Khu B · Lô 3 · Hàng 1 · Mộ 30',idok:true,note:'Nữ liệt sĩ.'}
+];
+
+var NEWS=[
+ {tag:'27/7',date:'Ngày 22/07/2026',title:'Kế hoạch tổ chức Lễ viếng nhân kỷ niệm 79 năm Ngày Thương binh – Liệt sĩ',excerpt:'Ban Quản lý thông báo lịch viếng, dâng hương và các hoạt động tri ân tại 3 nghĩa trang trên địa bàn Thành phố.'},
+ {tag:'Thông báo',date:'Ngày 15/06/2026',title:'Hướng dẫn đăng ký viếng và thắp hương trực tuyến trên Cổng thông tin',excerpt:'Thân nhân có thể đăng ký lịch viếng, gửi yêu cầu thắp hương online và nhận xác nhận qua tin nhắn.'},
+ {tag:'Quy tập',date:'Ngày 02/06/2026',title:'Tiếp nhận và an táng 12 hài cốt liệt sĩ được quy tập tại NTLS Đồng Nai 2',excerpt:'Lễ truy điệu và an táng được tổ chức trang trọng; thông tin đang được cập nhật để giám định ADN.'},
+ {tag:'Tết',date:'Ngày 20/01/2026',title:'Chương trình “Thắp nến tri ân” dịp Tết Nguyên đán tại các nghĩa trang',excerpt:'Mời thân nhân và nhân dân tham gia chương trình thắp nến, dọn dẹp khuôn viên phần mộ dịp đầu xuân.'},
+ {tag:'22/12',date:'Ngày 18/12/2025',title:'Hoạt động kỷ niệm Ngày thành lập Quân đội nhân dân Việt Nam',excerpt:'Các đoàn thể tổ chức dâng hương, chỉnh trang phần mộ và ôn lại truyền thống.'},
+ {tag:'Hướng dẫn',date:'Ngày 05/12/2025',title:'Hướng dẫn gửi yêu cầu đính chính, bổ sung thông tin bia mộ',excerpt:'Quy trình tiếp nhận, thẩm định và cập nhật thông tin trên bia mộ theo quy định.'}
+];
+
+var SERVICES=[
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Đăng ký viếng nghĩa trang',excerpt:'Đăng ký lịch viếng phần mộ liệt sĩ; nhận xác nhận và hướng dẫn từ Ban quản lý.'},
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Thắp hương online',excerpt:'Gửi yêu cầu thắp hương, dâng hoa tại phần mộ khi thân nhân ở xa.'},
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Yêu cầu đính chính thông tin bia mộ',excerpt:'Gửi đề nghị bổ sung, đính chính thông tin liệt sĩ kèm giấy tờ chứng minh.'},
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Gửi thông tin tìm liệt sĩ',excerpt:'Cung cấp thông tin để Ban quản lý hỗ trợ tra tìm phần mộ thân nhân.'},
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Xác nhận thân nhân liệt sĩ',excerpt:'Đăng ký liên kết quan hệ thân nhân với phần mộ để nhận thông báo.'},
+ {tag:'Dịch vụ',date:'Trực tuyến',title:'Đăng ký nhận thông báo ngày giỗ, 27/7',excerpt:'Nhận nhắc lịch các ngày lễ tri ân và ngày giỗ liệt sĩ qua email/SMS.'}
+];
+
+/* ===================== State ===================== */
+var state={nt:'',id:'',year:'',layout:'grid',page:1,perPage:6,filtered:[]};
+
+/* ===================== Helpers ===================== */
+function noAccent(s){return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D');}
+function toast(msg){var t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(function(){t.classList.remove('show');},2600);}
+function scrollFoot(){document.querySelector('footer.site').scrollIntoView({behavior:'smooth'});}
+function setLang(btn,l){btn.parentNode.querySelectorAll('button').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');if(l==='en')toast('English version is under development.');}
+
+/* ===================== View switching ===================== */
+function goView(v,sub){
+  document.querySelectorAll('main[id^="view-"]').forEach(function(el){el.classList.add('hidden');});
+  var t=document.getElementById('view-'+v);if(t)t.classList.remove('hidden');
+  document.querySelectorAll('.nav-link').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-view')===v);});
+  document.querySelector('nav.main').classList.remove('open');
+  window.scrollTo({top:0,behavior:'auto'});
+  if(v==='tracuu')runSearch();
+  if(v==='nghiatrang')renderNTList();
+  if(v==='gioithieu')renderGioiThieu(sub||'chucnang');
+  if(v==='hinhanh')renderAlbums();
+  if(v==='video')renderVideos();
+}
+
+/* ===================== Home quick search ===================== */
+function quickSearch(){
+  var q=document.getElementById('q_home').value.trim();
+  goView('tracuu');
+  document.getElementById('sb_name').value=q;
+  runSearch(true);
+}
+
+/* ===================== Search + filters ===================== */
+function matchYear(g,range){
+  if(!range)return true;
+  if(range==='-1969')return g.die<1969;
+  if(range==='1969-1972')return g.die>=1969&&g.die<=1972;
+  if(range==='1973-')return g.die>=1973;
+  return true;
+}
+function runSearch(resetPage){
+  if(resetPage)state.page=1;
+  var name=noAccent((document.getElementById('sb_name').value||'').trim().toLowerCase());
+  var birth=(document.getElementById('sb_birth').value||'').trim();
+  var die=(document.getElementById('sb_die').value||'').trim();
+  var prov=(document.getElementById('sb_prov')||{}).value||'';
+  var unit=(document.getElementById('sb_unit')||{}).value||'';
+  var rank=(document.getElementById('sb_rank')||{}).value||'';
+  var ntSel=(document.getElementById('sb_nt')||{}).value||'';
+  var grave=noAccent(((document.getElementById('sb_grave')||{}).value||'').trim().toLowerCase());
+  var idsel=(document.getElementById('sb_idstat')||{}).value||'';
+  state.filtered=GRAVES.filter(function(g){
+    if(name&&noAccent(g.name.toLowerCase()).indexOf(name)<0)return false;
+    if(birth&&String(g.birth).indexOf(birth)<0)return false;
+    if(die&&String(g.die).indexOf(die)<0)return false;
+    if(prov&&g.prov!==prov)return false;
+    if(unit&&g.unit!==unit)return false;
+    if(rank&&g.rank!==rank)return false;
+    if(ntSel&&g.nt!==ntSel)return false;
+    if(grave&&noAccent(g.pos.toLowerCase()).indexOf(grave)<0)return false;
+    if(idsel){var s=g.idok?'Đã xác định':'Chưa xác định';if(s!==idsel)return false;}
+    // sidebar filters
+    if(state.nt&&g.nt!==state.nt)return false;
+    if(state.id){var s2=g.idok?'Đã xác định':'Chưa xác định';if(s2!==state.id)return false;}
+    if(!matchYear(g,state.year))return false;
+    return true;
+  });
+  updateFilterCounts();
+  renderResults();
+}
+function updateFilterCounts(){
+  var all=GRAVES;
+  function c(nt){return all.filter(function(g){return !nt||g.nt===nt;}).length;}
+  var e;
+  e=document.getElementById('cnt-all');if(e)e.textContent=all.length;
+  e=document.getElementById('cnt-1');if(e)e.textContent=c('NTLS Đồng Nai 1');
+  e=document.getElementById('cnt-2');if(e)e.textContent=c('NTLS Đồng Nai 2');
+  e=document.getElementById('cnt-3');if(e)e.textContent=c('NTCB Đồng Nai');
+}
+function filterNT(v){state.nt=v;state.page=1;runSearch();}
+function filterID(v){state.id=v;state.page=1;runSearch();}
+function filterYear(v){state.year=v;state.page=1;runSearch();}
+function resetSearch(){
+  ['sb_name','sb_birth','sb_die','sb_grave'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+  ['sb_prov','sb_unit','sb_rank','sb_nt','sb_idstat'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+  document.querySelector('input[name=fnt][value=""]').checked=true;
+  document.querySelector('input[name=fid][value=""]').checked=true;
+  document.querySelector('input[name=fyear][value=""]').checked=true;
+  state.nt='';state.id='';state.year='';state.page=1;
+  runSearch();
+}
+function setLayout(l){
+  state.layout=l;
+  document.getElementById('vgrid').classList.toggle('on',l==='grid');
+  document.getElementById('vlist').classList.toggle('on',l==='list');
+  renderResults();
+}
+function stoneSVG(){return '<div class="stone"><div class="star">★</div><div class="lines"></div><div class="lines short"></div></div>';}
+function sortGraves(arr){
+  var s=document.getElementById('sortSel').value;
+  var a=arr.slice();
+  if(s==='name')a.sort(function(x,y){return noAccent(x.name).localeCompare(noAccent(y.name));});
+  else if(s==='year')a.sort(function(x,y){return y.die-x.die;});
+  else if(s==='nt')a.sort(function(x,y){return x.nt.localeCompare(y.nt);});
+  return a;
+}
+function renderResults(){
+  var arr=sortGraves(state.filtered);
+  document.getElementById('resCount').textContent=arr.length;
+  var grid=document.getElementById('graveGrid'),empty=document.getElementById('emptyState'),pager=document.getElementById('pager');
+  grid.className='grave-grid'+(state.layout==='list'?' list':'');
+  if(arr.length===0){grid.innerHTML='';empty.classList.remove('hidden');pager.innerHTML='';return;}
+  empty.classList.add('hidden');
+  var totalPages=Math.ceil(arr.length/state.perPage);
+  if(state.page>totalPages)state.page=totalPages;
+  var start=(state.page-1)*state.perPage;
+  var pageItems=arr.slice(start,start+state.perPage);
+  grid.innerHTML=pageItems.map(function(g){
+    var idb=g.idok?'<span class="idstat b-id">Đã xác định</span>':'<span class="idstat b-unid">Chưa xác định</span>';
+    var yr=(g.birth?g.birth:'?')+' – '+g.die;
+    if(state.layout==='list'){
+      return '<div class="gcard listrow" onclick="openGrave(\''+g.id+'\')"><div class="photo">'+stoneSVG()+idb+'</div>'+
+        '<div class="ginfo"><div class="gname">'+g.name+'</div><div class="gyear">'+yr+'</div>'+
+        '<div class="gmeta"><span><span class="k">🏠</span>'+(g.home||'Chưa xác định')+'</span><span><span class="k">🎖️</span>'+g.unit+(g.rank!=='—'?' · '+g.rank:'')+'</span><span><span class="k">📍</span>'+g.nt+' · '+g.pos+'</span></div></div>'+
+        '<div class="rowcta"><button class="btn sm" onclick="event.stopPropagation();openGrave(\''+g.id+'\')">Xem chi tiết →</button></div></div>';
+    }
+    return '<div class="gcard" onclick="openGrave(\''+g.id+'\')"><div class="photo">'+stoneSVG()+idb+'</div>'+
+      '<div class="ginfo"><div class="gname">'+g.name+'</div><div class="gyear">'+yr+'</div>'+
+      '<div class="gmeta"><span><span class="k">🏠</span>'+(g.home||'Chưa xác định')+'</span><span><span class="k">📍</span>'+g.nt+'</span><span><span class="k">⬛</span>'+g.pos+'</span></div></div></div>';
+  }).join('');
+  // pager
+  var ph='';
+  ph+='<button onclick="gotoPage('+(state.page-1)+')" '+(state.page===1?'disabled':'')+'>‹</button>';
+  for(var i=1;i<=totalPages;i++)ph+='<button class="'+(i===state.page?'on':'')+'" onclick="gotoPage('+i+')">'+i+'</button>';
+  ph+='<button onclick="gotoPage('+(state.page+1)+')" '+(state.page===totalPages?'disabled':'')+'>›</button>';
+  pager.innerHTML=totalPages>1?ph:'';
+}
+function gotoPage(p){var tp=Math.ceil(state.filtered.length/state.perPage);if(p<1||p>tp)return;state.page=p;renderResults();document.querySelector('.results-bar').scrollIntoView({behavior:'smooth'});}
+
+/* ===================== Grave detail modal ===================== */
+function qrSVG(){
+  // decorative QR placeholder
+  var cells='';for(var y=0;y<7;y++)for(var x=0;x<7;x++){if((x+y*3+x*y)%3===0||(x===0||y===0||x===6||y===6)&&(x+y)%2===0)cells+='<rect x="'+(x*8)+'" y="'+(y*8)+'" width="8" height="8" fill="#1f1f1f"/>';}
+  return '<svg viewBox="0 0 56 56">'+cells+'</svg>';
+}
+function openGrave(id){
+  var g=GRAVES.filter(function(x){return x.id===id;})[0];if(!g)return;
+  var idb=g.idok?'<span class="badge id">✓ Đã xác định danh tính</span>':'<span class="badge unid">Chưa xác định danh tính</span>';
+  var holdActions=g.idok?
+    '<button class="btn gold" onclick="toast(\'Đã ghi nhận yêu cầu thắp hương trực tuyến\')">🕯️ Thắp hương online</button>':'';
+  var rows=
+    '<tr><th>Mã hồ sơ</th><td>'+g.id+'</td></tr>'+
+    '<tr><th>Năm sinh</th><td>'+(g.birth?g.birth:'Chưa xác định')+'</td></tr>'+
+    '<tr><th>Năm hy sinh</th><td>'+g.die+'</td></tr>'+
+    '<tr><th>Quê quán</th><td>'+(g.home||'Chưa xác định')+'</td></tr>'+
+    '<tr><th>Đơn vị</th><td>'+g.unit+'</td></tr>'+
+    '<tr><th>Cấp bậc</th><td>'+g.rank+'</td></tr>'+
+    '<tr><th>Nghĩa trang</th><td>'+g.nt+'</td></tr>'+
+    '<tr><th>Vị trí mộ</th><td><b style="color:var(--red)">'+g.pos+'</b></td></tr>'+
+    (g.note?'<tr><th>Ghi chú</th><td>'+g.note+'</td></tr>':'');
+  document.getElementById('modalRoot').innerHTML=
+   '<div class="modal-bg" onclick="if(event.target===this)closeGrave()"><div class="modal">'+
+     '<div class="mhead"><h3>Thông tin phần mộ liệt sĩ</h3><button class="x" onclick="closeGrave()">✕</button></div>'+
+     '<div class="mbody">'+
+       '<div><div class="dphoto">'+stoneSVG().replace('class="stone"','class="stone" style="width:128px;height:166px;border-radius:64px 64px 8px 8px"')+'<div class="qr" title="Mã QR phần mộ">'+qrSVG()+'</div></div>'+
+         '<div style="text-align:center;font-size:12px;color:#8a7c70;margin-top:8px">Ảnh bia mộ · Mã QR định danh phần mộ</div></div>'+
+       '<div class="dinfo"><div class="dname">'+g.name+'</div>'+
+         '<div class="dbadges">'+idb+'<span class="badge nt">'+g.nt+'</span></div>'+
+         '<table class="dtable"><tbody>'+rows+'</tbody></table>'+
+         '<div class="dmap"><div class="maphead"><span>🗺️ Sơ đồ vị trí — '+g.nt+'</span><span style="color:var(--red)">'+g.pos.split(' · ')[0]+'</span></div>'+
+           '<div class="plot"><div class="lblmap">'+g.pos.replace(/Khu |Lô |Hàng |Mộ /g,'').replace(/ · /g,'·')+'</div><div class="pin">📍</div></div></div>'+
+         '<div class="dactions">'+
+           '<button class="btn" onclick="toast(\'Đang mở chỉ đường tới '+g.nt+'\')">🧭 Chỉ đường</button>'+
+           '<button class="btn ghost" onclick="toast(\'Đã mở biểu mẫu đăng ký viếng\')">📅 Đăng ký viếng</button>'+
+           holdActions+
+           '<button class="btn ghost" onclick="toast(\'Đã mở biểu mẫu gửi yêu cầu đính chính / bổ sung\')">✏️ Gửi yêu cầu bổ sung</button>'+
+           '<button class="btn ghost" onclick="toast(\'Đã sao chép liên kết phần mộ\')">🔗 Chia sẻ</button>'+
+         '</div>'+
+       '</div>'+
+     '</div>'+
+     '<div class="mfoot">Thông tin được cung cấp bởi Ban Quản lý nghĩa trang. Mọi đề nghị đính chính vui lòng gửi qua biểu mẫu hoặc đường dây nóng 0251 1080.</div>'+
+   '</div></div>';
+}
+function closeGrave(){document.getElementById('modalRoot').innerHTML='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeGrave();});
+
+/* ===================== News / services render ===================== */
+function newsCard(n){
+  return '<div class="ncard" onclick="toast(\'Đang mở bài viết: '+n.title.replace(/'/g,'')+'\')"><div class="ph"><span class="tag">'+n.tag+'</span>'+
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg></div>'+
+    '<div class="body"><div class="date">'+n.date+'</div><h4>'+n.title+'</h4><p>'+n.excerpt+'</p><div class="more">Xem chi tiết →</div></div></div>';
+}
+function renderNews(){
+  document.getElementById('newsGrid').innerHTML=NEWS.slice(0,3).map(newsCard).join('');
+  document.getElementById('newsGrid2').innerHTML=NEWS.map(newsCard).join('');
+  document.getElementById('svcGrid').innerHTML=SERVICES.map(newsCard).join('');
+}
+
+/* ===================== Counters ===================== */
+function animateCounters(){
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target=+el.getAttribute('data-count'),dur=1400,t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var ease=1-Math.pow(1-p,3);el.textContent=Math.floor(target*ease).toLocaleString('vi-VN');if(p<1)requestAnimationFrame(step);else el.textContent=target.toLocaleString('vi-VN');}
+    requestAnimationFrame(step);
+  });
+}
+var statsSeen=false;
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&!statsSeen){statsSeen=true;animateCounters();}});},{threshold:.4});
+window.addEventListener('load',function(){var s=document.querySelector('.stats');if(s)io.observe(s);});
+
+/* ===================== Hệ thống nghĩa trang ===================== */
+var NTS=[
+ {slug:'ntls-dong-nai-1',name:'Nghĩa trang liệt sĩ Đồng Nai 1',short:'NTLS Đồng Nai 1',type:'Liệt sĩ',dist:'TP. Biên Hòa',addr:'P. Quang Vinh, TP. Biên Hòa, Đồng Nai',founded:1976,area:'52.000 m²',total:4200,idok:3400,x:20,y:26},
+ {slug:'ntls-dong-nai-2',name:'Nghĩa trang liệt sĩ Đồng Nai 2',short:'NTLS Đồng Nai 2',type:'Liệt sĩ',dist:'H. Nhơn Trạch',addr:'X. Long Tân, H. Nhơn Trạch, Đồng Nai',founded:1980,area:'41.500 m²',total:3100,idok:2500,x:64,y:38},
+ {slug:'ntcb-dong-nai',name:'Nghĩa trang cán bộ Đồng Nai',short:'NTCB Đồng Nai',type:'Cán bộ – NCC',dist:'TP. Biên Hòa',addr:'P. Tân Phong, TP. Biên Hòa, Đồng Nai',founded:1985,area:'18.200 m²',total:2400,idok:1900,x:34,y:52},
+ {slug:'ntls-long-thanh',name:'Nghĩa trang liệt sĩ Long Thành',short:'NTLS Long Thành',type:'Kết hợp',dist:'H. Long Thành',addr:'TT. Long Thành, H. Long Thành, Đồng Nai',founded:1978,area:'22.000 m²',total:1500,idok:1200,x:26,y:76},
+ {slug:'ntls-long-khanh',name:'Nghĩa trang liệt sĩ Long Khánh',short:'NTLS Long Khánh',type:'Liệt sĩ',dist:'TP. Long Khánh',addr:'P. Xuân An, TP. Long Khánh, Đồng Nai',founded:1979,area:'15.000 m²',total:1280,idok:860,x:72,y:72}
+];
+function ntChip(t){return t==='Cán bộ – NCC'?'<span class="chip" style="background:#e6f0fb;color:#1f5fa8">'+t+'</span>':(t==='Kết hợp'?'<span class="chip gray">'+t+'</span>':'<span class="chip red">'+t+'</span>');}
+function renderNTList(){
+  var q=noAccent((document.getElementById('ntSearch')||{}).value||'').trim().toLowerCase();
+  var ft=(document.getElementById('ntFType')||{}).value||'';
+  var fd=(document.getElementById('ntFDist')||{}).value||'';
+  var sort=(document.getElementById('ntSort')||{}).value||'az';
+  var arr=NTS.filter(function(n){
+    if(ft&&n.type!==ft)return false;
+    if(fd&&n.dist!==fd)return false;
+    if(q&&noAccent((n.name+' '+n.addr).toLowerCase()).indexOf(q)<0)return false;
+    return true;
+  });
+  if(sort==='az')arr.sort(function(a,b){return noAccent(a.name).localeCompare(noAccent(b.name));});
+  else if(sort==='mo')arr.sort(function(a,b){return b.total-a.total;});
+  else if(sort==='dist')arr.sort(function(a,b){return a.dist.localeCompare(b.dist);});
+  document.getElementById('ntGrid').innerHTML=arr.map(function(n){
+    var unid=n.total-n.idok;
+    return '<div class="ntcard"><div class="cover"><h4>'+n.name+'</h4></div><div class="nb">'+
+      '<div class="addr"><span>📍</span><span>'+n.addr+'</span></div>'+
+      '<div class="ntchips">'+ntChip(n.type)+'<span class="chip gray">'+n.dist+'</span></div>'+
+      '<div class="nt-mini"><div><div class="n">'+n.total.toLocaleString('vi-VN')+'</div><div class="l">Tổng mộ</div></div><div><div class="n" style="color:#1f8a4c">'+n.idok.toLocaleString('vi-VN')+'</div><div class="l">Đã xác định</div></div><div><div class="n" style="color:#b8860b">'+unid.toLocaleString('vi-VN')+'</div><div class="l">Chưa XĐ</div></div></div>'+
+      '<div class="row2"><button class="btn sm" onclick="openNT(\''+n.slug+'\')">Xem chi tiết</button><button class="btn ghost sm" onclick="toast(\'Đang mở chỉ đường tới '+n.name+'\')">🧭 Chỉ đường</button></div>'+
+      '</div></div>';
+  }).join('');
+  // map pins
+  var mp=document.getElementById('ntMap');
+  mp.querySelectorAll('.mappin,.mappop').forEach(function(e){e.remove();});
+  arr.forEach(function(n){
+    var pin=document.createElement('div');pin.className='mappin';pin.style.left=n.x+'%';pin.style.top=n.y+'%';
+    pin.innerHTML='<div class="dot">★</div><div class="nm">'+n.name+'</div>';
+    pin.onclick=function(e){e.stopPropagation();openMapPop(n);};
+    mp.appendChild(pin);
+  });
+}
+function ntMode(m){
+  document.getElementById('ntmMap').classList.toggle('on',m==='map');
+  document.getElementById('ntmList').classList.toggle('on',m==='list');
+  document.getElementById('ntMapWrap').style.display=m==='map'?'block':'none';
+}
+function openMapPop(n){
+  var mp=document.getElementById('ntMap');
+  mp.querySelectorAll('.mappop').forEach(function(e){e.remove();});
+  var pop=document.createElement('div');pop.className='mappop';
+  var lx=Math.min(n.x,68);pop.style.left=lx+'%';pop.style.top=(n.y+2)+'%';
+  pop.innerHTML='<div class="pp-img"><button class="x" onclick="this.closest(\'.mappop\').remove()">✕</button></div><div class="pp-body"><h5>'+n.name+'</h5><div style="font-size:12.5px;color:var(--muted);margin:4px 0 8px">📍 '+n.addr+'<br>🪦 '+n.total.toLocaleString('vi-VN')+' phần mộ</div><div style="display:flex;gap:7px"><button class="btn sm" style="flex:1" onclick="openNT(\''+n.slug+'\')">Xem chi tiết</button><button class="btn ghost sm" onclick="toast(\'Đang mở chỉ đường\')">🧭</button></div></div>';
+  mp.appendChild(pop);
+}
+
+/* ===================== Chi tiết nghĩa trang (6 tab) ===================== */
+var ntCur=null,ntTabIdx=0;
+var NT_TABS=['Thông tin chung','Quy hoạch &amp; sơ đồ','Thống kê phần mộ','Danh sách liệt sĩ','QR Code','Hồ sơ – hình ảnh'];
+function openNT(slug){
+  ntCur=NTS.filter(function(n){return n.slug===slug;})[0];if(!ntCur)return;ntTabIdx=0;
+  goView('ntdetail');
+  document.getElementById('ntdHeroInner').innerHTML=
+    '<div class="crumb"><a href="#" onclick="goView(\'home\');return false">Trang chủ</a> › <a href="#" onclick="goView(\'nghiatrang\');return false">Hệ thống nghĩa trang</a> › '+ntCur.name+'</div>'+
+    '<h2>'+ntCur.name+'</h2><div class="sub"><span>📍 '+ntCur.addr+'</span>'+ntChip(ntCur.type)+'</div>';
+  document.getElementById('ntdTabs').innerHTML=NT_TABS.map(function(t,i){return '<button class="'+(i===0?'on':'')+'" onclick="ntTab('+i+')">'+(i+1)+'. '+t+'</button>';}).join('');
+  ntTab(0);
+}
+function ntTab(i){
+  ntTabIdx=i;
+  document.querySelectorAll('#ntdTabs button').forEach(function(b,bi){b.classList.toggle('on',bi===i);});
+  document.getElementById('ntdBody').innerHTML=ntPane(i,ntCur);
+}
+function ntPane(i,n){
+  var unid=n.total-n.idok,pct=Math.round(n.idok/n.total*100);
+  if(i===0){
+    var gallery='';for(var g=0;g<6;g++)gallery+='<div class="album-grid" style="display:none"></div>';
+    var imgs='';for(var k=0;k<6;k++)imgs+='<div class="ph"><span class="cap">Ảnh '+(k+1)+'</span></div>';
+    return '<div class="two-col"><div><table class="kvtable"><tr><th>Tên đầy đủ</th><td>'+n.name+'</td></tr><tr><th>Năm thành lập</th><td>'+n.founded+'</td></tr><tr><th>Diện tích</th><td>'+n.area+'</td></tr><tr><th>Địa chỉ</th><td>'+n.addr+'</td></tr><tr><th>Đơn vị quản lý</th><td>Ban QL nghĩa trang liệt sĩ TP. Đồng Nai</td></tr><tr><th>Hotline</th><td>0251 1080</td></tr><tr><th>Email</th><td>banqlnt@dongnai.gov.vn</td></tr><tr><th>Giờ mở cửa</th><td>06:00 – 18:00 hằng ngày</td></tr><tr><th>Loại</th><td>'+n.type+'</td></tr></table>'+
+      '<h3 class="serif" style="color:var(--red-3);font-size:19px;margin:22px 0 10px">Lịch sử nghĩa trang</h3><div class="prose"><p>'+n.name+' được thành lập năm '+n.founded+', là nơi an nghỉ của '+n.total.toLocaleString("vi-VN")+' anh hùng liệt sĩ đã hi sinh vì độc lập, tự do của Tổ quốc. Nghĩa trang được quy hoạch trang nghiêm với đài tưởng niệm trung tâm, các khu mộ bố trí theo hàng lối ngay ngắn.</p><p>Hằng năm, nghĩa trang đón tiếp hàng nghìn lượt thân nhân và nhân dân đến dâng hương, tưởng niệm, đặc biệt vào dịp 27/7 và 22/12.</p></div></div>'+
+      '<div><div class="album-grid" style="grid-auto-rows:120px">'+imgs+'</div></div></div>';
+  }
+  if(i===1){
+    return '<div class="two-col" style="grid-template-columns:2fr 1fr"><div><div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:12px"><span>🟢 Đã xác định</span><span>⬜ Chưa xác định</span><span style="color:#8a6">▦ Khu hành chính</span><span style="color:#b8860b">▦ Khu tâm linh</span><span>┄ Lối đi</span></div>'+
+      '<div class="ntplot"><div class="zone" style="left:4%;top:6%;width:40%;height:38%;background:rgba(31,138,76,.18);color:#1f6e3c;border:1px solid #9ccfae">Khu A</div><div class="zone" style="left:50%;top:6%;width:44%;height:38%;background:rgba(31,138,76,.12);color:#1f6e3c;border:1px solid #b6dcc4">Khu B</div><div class="zone" style="left:4%;top:50%;width:30%;height:42%;background:rgba(184,134,11,.14);color:#8a6400;border:1px solid #e6cd8a">Khu tâm linh</div><div class="zone" style="left:38%;top:50%;width:30%;height:42%;background:rgba(120,120,120,.14);color:#666;border:1px solid #ccc">Khu C (chưa XĐ)</div><div class="zone" style="left:72%;top:50%;width:22%;height:42%;background:rgba(150,110,90,.16);color:#7a5;border:1px solid #cbb">Khu hành chính</div><div class="pin" style="position:absolute;left:22%;top:24%;color:var(--red);font-size:26px;animation:none">📍</div></div></div>'+
+      '<div class="formcard"><h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:10px">Đi tới mộ</h4><div class="fld"><label>Nhập mã mộ (VD: A·3·7·12)</label><input id="ntGoMo" placeholder="Khu·Lô·Hàng·Số"></div><button class="btn block" onclick="toast(\'Đã định vị &amp; phóng to tới ô mộ trên sơ đồ\')">🔍 Định vị trên sơ đồ</button><div style="display:flex;gap:8px;margin-top:12px"><button class="btn ghost sm" style="flex:1" onclick="toast(\'Phóng to\')">＋</button><button class="btn ghost sm" style="flex:1" onclick="toast(\'Thu nhỏ\')">－</button><button class="btn ghost sm" style="flex:1" onclick="toast(\'Đặt lại\')">↺</button></div></div></div>';
+  }
+  if(i===2){
+    return '<div class="stats-grid" style="border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:24px">'+
+      '<div class="stat"><div class="num">'+n.total.toLocaleString("vi-VN")+'</div><div class="lab">Tổng phần mộ</div></div>'+
+      '<div class="stat"><div class="num" style="color:#1f8a4c">'+n.idok.toLocaleString("vi-VN")+'</div><div class="lab">Đã xác định</div></div>'+
+      '<div class="stat"><div class="num" style="color:#b8860b">'+unid.toLocaleString("vi-VN")+'</div><div class="lab">Chưa xác định</div></div>'+
+      '<div class="stat"><div class="num">'+pct+'%</div><div class="lab">Tỷ lệ xác định</div></div></div>'+
+      '<div class="two-col"><div class="formcard"><h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:14px;text-align:center">Tỷ lệ xác định danh tính</h4><div class="donut" style="--p:'+pct+'%"><div class="c"><b>'+pct+'%</b><span style="font-size:12px;color:var(--muted)">đã xác định</span></div></div></div>'+
+      '<div class="formcard"><h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:14px">Theo thập niên hi sinh</h4>'+
+      [['Trước 1965',18],['1965–1969',42],['1970–1975',88],['Sau 1975',24]].map(function(r){return '<div class="barrow"><div class="bl">'+r[0]+'</div><div class="bt"><i style="width:'+r[1]+'%"></i></div><div class="bv">'+Math.round(r[1]/100*n.total)+'</div></div>';}).join('')+'</div></div>'+
+      '<div class="two-col" style="margin-top:20px"><div class="formcard"><h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:14px">Top quê quán</h4>'+
+      [['Nghệ An',64],['Thái Bình',52],['Quảng Nam',46],['Đồng Nai',38],['Hà Nội',28]].map(function(r){return '<div class="barrow"><div class="bl">'+r[0]+'</div><div class="bt"><i style="width:'+r[1]+'%"></i></div><div class="bv">'+r[1]+'</div></div>';}).join('')+'</div>'+
+      '<div class="formcard"><h4 class="serif" style="color:var(--red-3);font-size:16px;margin-bottom:14px">Theo đơn vị / quân chủng</h4>'+
+      [['Sư đoàn 5',58],['Đoàn 559',44],['Trung đoàn 1',36],['Tỉnh đội',30]].map(function(r){return '<div class="barrow"><div class="bl">'+r[0]+'</div><div class="bt"><i style="width:'+r[1]+'%"></i></div><div class="bv">'+r[1]+'</div></div>';}).join('')+'</div></div>'+
+      '<div style="text-align:center;margin-top:20px"><button class="btn ghost" onclick="toast(\'Đã xuất biểu đồ (PNG)\')">⬇️ Xuất biểu đồ (PNG)</button></div>';
+  }
+  if(i===3){
+    var list=GRAVES.filter(function(g){return g.nt===n.short;});
+    var rows=list.length?list.map(function(g,gi){return '<tr><td>'+(gi+1)+'</td><td><div class="nra" style="width:34px;height:42px;background:linear-gradient(180deg,#d9d2c8,#b3a899);border-radius:17px 17px 3px 3px;margin:0"></div></td><td><b style="color:var(--red-3)">'+g.name+'</b></td><td>'+(g.birth||'—')+'</td><td>'+g.die+'</td><td>'+(g.home||'Chưa XĐ')+'</td><td>'+g.pos.replace(/Khu |Lô |Hàng |Mộ /g,'').replace(/ · /g,'·')+'</td><td>'+(g.idok?'<span class="chip red" style="background:#e6f4ec;color:#1f8a4c">Đã XĐ</span>':'<span class="chip" style="background:#fdf3dd;color:#9a6b00">Chưa XĐ</span>')+'</td><td><button class="btn ghost sm" onclick="openGrave(\''+g.id+'\')">Xem</button></td></tr>';}).join('')
+      :'<tr><td colspan="9" style="text-align:center;padding:24px;color:#999">Đang cập nhật danh sách liệt sĩ an táng tại nghĩa trang này.</td></tr>';
+    return '<div class="nt-toolbar"><input placeholder="🔍 Tìm theo họ tên, vị trí mộ"><select><option>Tất cả trạng thái</option><option>Đã xác định</option><option>Chưa xác định</option></select><div style="flex:1"></div><button class="btn ghost sm" onclick="toast(\'Đã xuất danh sách (PDF)\')">⬇️ Xuất danh sách (PDF)</button></div>'+
+      '<div class="card" style="background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto"><table class="kvtable"><thead><tr><th style="width:46px;background:#faf6f3">STT</th><th style="width:54px;background:#faf6f3">Ảnh</th><th style="background:#faf6f3">Họ tên</th><th style="background:#faf6f3">Năm sinh</th><th style="background:#faf6f3">Năm hi sinh</th><th style="background:#faf6f3">Quê quán</th><th style="background:#faf6f3">Vị trí mộ</th><th style="background:#faf6f3">Trạng thái</th><th style="background:#faf6f3">Hành động</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  if(i===4){
+    return '<div style="text-align:center;max-width:520px;margin:0 auto"><div style="display:inline-block;background:#fff;border:2px solid var(--red);border-radius:16px;padding:24px"><div style="width:300px;height:300px">'+qrSVG().replace("viewBox=\"0 0 56 56\"","viewBox=\"0 0 56 56\" style=\"width:100%;height:100%\"")+'</div></div>'+
+      '<h3 class="serif" style="color:var(--red-3);margin:18px 0 6px">'+n.name+'</h3><p style="color:var(--muted);font-size:14px">Quét mã để xem thông tin &amp; sơ đồ nghĩa trang trên thiết bị di động</p>'+
+      '<div class="two-col" style="grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0"><div class="formcard" style="text-align:center"><div style="font-size:26px">📷</div><b>Quét</b><p style="font-size:12.5px;color:var(--muted)">Dùng camera điện thoại quét mã QR</p></div><div class="formcard" style="text-align:center"><div style="font-size:26px">👁️</div><b>Xem</b><p style="font-size:12.5px;color:var(--muted)">Xem thông tin, sơ đồ, danh sách mộ</p></div><div class="formcard" style="text-align:center"><div style="font-size:26px">🔗</div><b>Chia sẻ</b><p style="font-size:12.5px;color:var(--muted)">Chia sẻ tới thân nhân, đồng đội</p></div></div>'+
+      '<div style="display:flex;gap:10px;justify-content:center"><button class="btn" onclick="toast(\'Đã tải QR (PNG)\')">⬇️ PNG</button><button class="btn ghost" onclick="toast(\'Đã tải QR (SVG)\')">⬇️ SVG</button><button class="btn ghost" onclick="toast(\'Đã tải QR (PDF)\')">⬇️ PDF</button></div></div>';
+  }
+  // i===5
+  var imgs='';for(var k=0;k<8;k++)imgs+='<div class="ph'+(k===0||k===3?' big':'')+'"><span class="cap">Tư liệu '+(k+1)+'</span></div>';
+  var docs=[['Quyết định công nhận nghĩa trang','QĐ-'+n.founded+'.pdf','1,2 MB'],['Bản đồ quy hoạch tổng thể','QH-tong-the.pdf','3,4 MB'],['Danh sách liệt sĩ an táng (công khai)','DS-liet-si.pdf','860 KB']];
+  return '<h3 class="serif" style="color:var(--red-3);font-size:19px;margin-bottom:14px">Hình ảnh &amp; tư liệu</h3><div class="album-grid">'+imgs+'</div>'+
+    '<h3 class="serif" style="color:var(--red-3);font-size:19px;margin:26px 0 14px">Tài liệu công khai</h3>'+
+    docs.map(function(d){return '<div class="leader" style="align-items:center;margin-bottom:12px"><div style="width:48px;height:48px;flex:0 0 48px;background:var(--red-bg);color:var(--red);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">PDF</div><div style="flex:1"><b>'+d[0]+'</b><div style="font-size:12.5px;color:var(--muted)">'+d[1]+' · '+d[2]+'</div></div><button class="btn ghost sm" onclick="toast(\'Đang mở tài liệu\')">Xem</button><button class="btn ghost sm" onclick="toast(\'Đang tải tài liệu\')">⬇️ Tải</button></div>';}).join('');
+}
+
+/* ===================== Giới thiệu ===================== */
+var GT={
+ chucnang:{t:'Chức năng – nhiệm vụ',html:'<h3>Chức năng</h3><p>Ban Quản lý nghĩa trang liệt sĩ Thành phố Đồng Nai là đơn vị sự nghiệp công lập trực thuộc Sở Lao động – Thương binh &amp; Xã hội, có chức năng quản lý, chăm sóc và bảo vệ các nghĩa trang liệt sĩ, nghĩa trang cán bộ và người có công trên địa bàn Thành phố.</p><h3>Nhiệm vụ</h3><ul><li>Tiếp nhận, tổ chức an táng hài cốt liệt sĩ được quy tập, di chuyển.</li><li>Lập, quản lý danh sách, hồ sơ và sơ đồ phần mộ liệt sĩ.</li><li>Quản lý, chăm sóc, tu bổ, tôn tạo nghĩa trang, đài tưởng niệm.</li><li>Tổ chức tiếp đón thân nhân, các đoàn đến viếng, dâng hương.</li><li>Phối hợp xác minh, giám định ADN xác định danh tính liệt sĩ.</li><li>Số hóa hồ sơ, vận hành cổng thông tin tra cứu liệt sĩ.</li></ul>'},
+ quyche:{t:'Quy chế làm việc',html:'<h3>Nguyên tắc làm việc</h3><p>Ban làm việc theo chế độ thủ trưởng, bảo đảm nguyên tắc tập trung dân chủ, công khai, minh bạch và đúng quy định pháp luật.</p><ul><li>Trưởng ban phụ trách chung, chịu trách nhiệm trước Giám đốc Sở.</li><li>Phó trưởng ban giúp việc theo phân công và ủy quyền.</li><li>Các tổ chuyên môn thực hiện nhiệm vụ theo chức năng được giao.</li><li>Giờ làm việc: Thứ Hai – Thứ Sáu, sáng 07:30–11:30, chiều 13:30–17:00.</li></ul>'},
+ phancong:{t:'Phân công nhiệm vụ',html:'<h3>Phân công nhiệm vụ trong Ban</h3><ul><li><b>Trưởng ban:</b> Phụ trách chung; công tác tổ chức, tài chính; ký duyệt &amp; công khai hồ sơ.</li><li><b>Phó trưởng ban:</b> Phụ trách chuyên môn nghiệp vụ quản lý mộ, quy tập, giám định ADN.</li><li><b>Tổ nghiệp vụ – hồ sơ:</b> Nhập liệu, quản lý hồ sơ mộ và thân nhân.</li><li><b>Tổ chăm sóc khuôn viên:</b> Chăm sóc, hương khói, tiếp đón thân nhân.</li><li><b>Tổ kỹ thuật – số hóa:</b> Vận hành cổng thông tin, sơ đồ số, mã QR.</li></ul>'},
+ lanhdao:{t:'Lãnh đạo Ban',html:'<div class="leader-grid"><div class="leader"><div class="av">★</div><div><h5>Đồng chí Trưởng ban</h5><div class="pos">Trưởng ban Quản lý</div><div style="font-size:13px;color:var(--muted)">📞 0251 1080<br>✉️ truongban@dongnai.gov.vn</div></div></div><div class="leader"><div class="av">★</div><div><h5>Đồng chí Phó trưởng ban</h5><div class="pos">Phó trưởng ban</div><div style="font-size:13px;color:var(--muted)">📞 0251 1080<br>✉️ photruongban@dongnai.gov.vn</div></div></div></div>'}
+};
+function renderGioiThieu(sub){
+  var k=GT[sub]?sub:'chucnang',d=GT[k];
+  document.getElementById('gtTitle').textContent=d.t;
+  document.getElementById('gtBody').innerHTML='<h2 class="serif" style="color:var(--red-3);font-size:25px;margin-bottom:14px">'+d.t+'</h2>'+d.html;
+  document.getElementById('gtMenu').innerHTML=Object.keys(GT).map(function(key){return '<a href="#" class="'+(key===k?'on':'')+'" onclick="renderGioiThieu(\''+key+'\');return false">'+GT[key].t+'</a>';}).join('');
+}
+
+/* ===================== Hình ảnh / Video ===================== */
+var ALBUMS=[{t:'Lễ thắp nến tri ân 27/7/2025',d:'27/07/2025',n:24},{t:'Đoàn lãnh đạo TP viếng nghĩa trang 22/12',d:'22/12/2025',n:18},{t:'Đoàn đại biểu tỉnh bạn đến viếng',d:'10/03/2026',n:12}];
+function renderAlbums(){
+  document.getElementById('albumWrap').innerHTML=ALBUMS.map(function(a){
+    var imgs='';for(var k=0;k<8;k++)imgs+='<div class="ph'+(k===0?' big':'')+'" onclick="toast(\'Mở ảnh trong album\')"><span class="cap">'+a.t+'</span></div>';
+    return '<div style="margin-bottom:30px"><div class="sec-head" style="text-align:left;margin-bottom:14px"><h3 style="font-size:20px">'+a.t+'</h3><div style="font-size:13px;color:var(--muted);margin-top:4px">📅 '+a.d+' · '+a.n+' ảnh</div></div><div class="album-grid">'+imgs+'</div></div>';
+  }).join('');
+}
+var VIDEOS=[{t:'Phóng sự: Tri ân các anh hùng liệt sĩ Đồng Nai',dur:'08:24'},{t:'Lễ thắp nến tri ân 27/7 tại NTLS Đồng Nai 1',dur:'12:05'},{t:'Hành trình quy tập hài cốt liệt sĩ',dur:'15:40'},{t:'Chuyển đổi số trong quản lý nghĩa trang',dur:'06:18'},{t:'Câu chuyện về những ngôi mộ chưa tên',dur:'10:32'},{t:'Hướng dẫn tra cứu liệt sĩ trên Cổng thông tin',dur:'04:50'}];
+function renderVideos(){
+  document.getElementById('videoGrid').innerHTML=VIDEOS.map(function(v){return '<div class="vthumb" onclick="toast(\'Đang mở trình phát video\')"><div class="vp"><div class="play">▶</div><div class="dur">'+v.dur+'</div></div><div class="vt">'+v.t+'</div></div>';}).join('');
+}
+
+/* ===================== Cỡ chữ + lượt truy cập ===================== */
+var _fs=1;
+function fontScale(d){if(d===0)_fs=1;else _fs=Math.max(.9,Math.min(1.35,_fs+d*0.1));document.body.style.zoom=_fs;}
+function renderVisit(){
+  var online=24+Math.floor(Math.random()*46);
+  var data=[['Đang trực tuyến',online],['Hôm nay','1.284'],['Tuần này','8.640'],['Tháng này','34.210'],['Tổng lượt','1.248.530']];
+  var vb=document.getElementById('visitBox');if(vb)vb.innerHTML=data.map(function(x){return '<div class="vc"><div class="n">'+x[1]+'</div><div class="l">'+x[0]+'</div></div>';}).join('');
+}
+setInterval(renderVisit,6000);
+
+/* ===================== Init ===================== */
+renderNews();
+runSearch();
+renderVisit();
+</script>
+</body></html>
